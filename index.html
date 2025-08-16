@@ -1,493 +1,104 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Givana — 100% Soy Wax Candles | Luxury & Personalized Gifts</title>
-  <meta name="description" content="Givana crafts 100% soy wax candles—scented, luxury, and personalized gifts. Based in Ottawa. Contact: kullapunam101@gmail.com" />
-  <meta name="author" content="Givana" />
-  <meta property="og:title" content="Givana — 100% Soy Wax Candles" />
-  <meta property="og:description" content="Luxury scented candles and personalized gifts. 100% soy. Ottawa." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🕯️</text></svg>">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Store",
-    "name": "Givana",
-    "brand": {"@type": "Brand", "name": "Givana"},
-    "founder": {"@type": "Person", "name": "Punam Kulla"},
-    "email": "mailto:kullapunam101@gmail.com",
-    "address": {"@type": "PostalAddress", "addressLocality": "Ottawa", "addressCountry": "CA"},
-    "sameAs": [],
-    "url": "https://example.com/"
-  }
-  </script>
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <nav class="nav container" aria-label="Primary">
-      <a class="logo" href="#">Givana</a>
-      <button class="nav-toggle" aria-controls="menu" aria-expanded="false">
-        <span class="sr-only">Toggle menu</span>
-        ☰
-      </button>
-      <ul id="menu" class="menu">
-        <li><a href="#collections">Collections</a></li>
-        <li><a href="#shop">Shop</a></li>
-        <li><a href="#personalized">Personalized</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a class="btn" href="#contact">Order</a></li>
-      </ul>
-    </nav>
-  </header>
+// app/layout.tsx
+import "./globals.css";
+import Link from "next/link";
 
-  <main id="main">
-    <section class="hero">
-      <div class="hero-inner container">
-        <div class="hero-copy">
-          <h1>100% Soy Wax Candles</h1>
-          <p class="lead">Scented · Luxury · Personalized gifts — hand-poured in Ottawa.</p>
-          <div class="cta">
-            <a class="btn primary" href="#collections">Shop Collections</a>
-            <a class="btn ghost" href="#personalized">Personalize a Candle</a>
-          </div>
-          <ul class="usp" role="list">
-            <li>Clean burn</li>
-            <li>Thoughtful scents</li>
-            <li>Gift-ready packaging</li>
-          </ul>
-        </div>
-        <figure class="hero-media">
-          <img src="https://images.unsplash.com/photo-1501466044931-62695aada8e9?q=80&w=1200&auto=format&fit=crop" alt="Elegant soy candles arranged on a tray" loading="eager" />
-        </figure>
-      </div>
-    </section>
-
-    <section id="collections" class="container section">
-      <header class="section-head">
-        <h2>Collections</h2>
-        <p>Discover scented, soy, and luxury signature lines — crafted to elevate everyday moments.</p>
-      </header>
-
-      <div class="grid cards">
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop" alt="Scented candle with soft floral notes" />
-          <div class="card-body">
-            <h3>Signature Scents</h3>
-            <p>From calming lavender to warm vanilla—balanced, room-filling aromas.</p>
-            <a href="#contact" class="text-link">Order this collection →</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1519681393784-7b7b96f2f3ae?q=80&w=1200&auto=format&fit=crop" alt="Minimal luxury candle in matte vessel" />
-          <div class="card-body">
-            <h3>Luxury</h3>
-            <p>Refined vessels and layered notes—made to gift and to keep.</p>
-            <a href="#contact" class="text-link">Order this collection →</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1501973801540-537f08ccae7b?q=80&w=1200&auto=format&fit=crop" alt="Personalized gift candle with custom label" />
-          <div class="card-body">
-            <h3>Personalized Gifts</h3>
-            <p>Custom labels, names & dates for weddings, birthdays, and milestones.</p>
-            <a href="#personalized" class="text-link">Personalize yours →</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- SHOP (pricing + quick-order) -->
-    <section id="shop" class="container section">
-      <header class="section-head">
-        <h2>Shop</h2>
-        <p>Transparent pricing. Hand-poured quality.</p>
-      </header>
-
-      <div class="grid cards shop-cards">
-        <article class="card product">
-          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop" alt="Signature scented candle" />
-          <div class="card-body">
-            <h3>Signature Scented</h3>
-            <p class="price">From CAD $24</p>
-            <ul class="bullets" role="list">
-              <li>8 oz · ~40+ hr burn</li>
-              <li>Clean, room-filling aroma</li>
-            </ul>
-            <button class="btn primary order-btn"
-              data-product="Signature Scented Candle"
-              data-price="24"
-              data-variant="8 oz"
-            >Order now</button>
-          </div>
-        </article>
-
-        <article class="card product">
-          <img src="https://images.unsplash.com/photo-1519681393784-7b7b96f2f3ae?q=80&w=1200&auto=format&fit=crop" alt="Luxury matte vessel candle" />
-          <div class="card-body">
-            <h3>Luxury</h3>
-            <p class="price">From CAD $36</p>
-            <ul class="bullets" role="list">
-              <li>Matte vessel · premium wax</li>
-              <li>Layered fragrance notes</li>
-            </ul>
-            <button class="btn primary order-btn"
-              data-product="Luxury Candle"
-              data-price="36"
-              data-variant="Standard"
-            >Order now</button>
-          </div>
-        </article>
-
-        <article class="card product">
-          <img src="https://images.unsplash.com/photo-1501973801540-537f08ccae7b?q=80&w=1200&auto=format&fit=crop" alt="Personalized gift candle" />
-          <div class="card-body">
-            <h3>Personalized Gift</h3>
-            <p class="price">From CAD $42</p>
-            <ul class="bullets" role="list">
-              <li>Custom label (names/dates)</li>
-              <li>Proof sent before pour</li>
-            </ul>
-            <button class="btn primary order-btn"
-              data-product="Personalized Candle"
-              data-price="42"
-              data-variant="Custom label"
-            >Personalize & order</button>
-          </div>
-        </article>
-      </div>
-
-      <p class="micro-note">* Prices are sample and can be updated anytime.</p>
-    </section>
-
-    <section id="personalized" class="section alt">
-      <div class="container">
-        <header class="section-head">
-          <h2>Personalize Your Candle</h2>
-          <p>Make it truly yours in three simple steps.</p>
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body className="font-inter bg-neutral-50 text-neutral-900">
+        <header className="sticky top-0 bg-white shadow">
+          <nav className="max-w-6xl mx-auto flex justify-between items-center p-4">
+            <Link href="/" className="text-xl font-bold">Givana & Co.</Link>
+            <div className="flex gap-6">
+              <Link href="/shop">Shop</Link>
+              <Link href="/about">About</Link>
+              <Link href="/contact">Contact</Link>
+              <Link href="/cart">Cart</Link>
+            </div>
+          </nav>
         </header>
-        <ol class="steps">
-          <li><strong>Choose</strong> a vessel & size</li>
-          <li><strong>Pick</strong> a scent profile</li>
-          <li><strong>Add</strong> names, dates, or a short message</li>
-        </ol>
-        <a class="btn primary" href="#contact">Start a Personalized Order</a>
-      </div>
-    </section>
+        <main className="max-w-6xl mx-auto p-6">{children}</main>
+        <footer className="bg-neutral-100 mt-12 p-6 text-center">
+          <p>© 2025 Givana & Co. | Hand-poured soy candles</p>
+        </footer>
+      </body>
+    </html>
+  );
+}
 
-    <section id="about" class="container section">
-      <div class="about">
-        <div class="about-copy">
-          <h2>About Givana</h2>
-          <p>We craft clean-burning, 100% soy candles designed to slow down time and spark joy. Whether you’re treating yourself or gifting someone special, every candle is poured with care.</p>
-          <ul class="highlights" role="list">
-            <li>100% soy wax</li>
-            <li>Curated scent library</li>
-            <li>Personalized labels available</li>
-          </ul>
+// app/page.tsx (Home)
+import Link from "next/link";
+
+export default function HomePage() {
+  return (
+    <div className="space-y-12">
+      <section className="text-center py-20 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white rounded-2xl shadow">
+        <h1 className="text-4xl font-bold">Every scent tells a story</h1>
+        <p className="mt-4">Hand-poured soy candles. Organic. Sustainable. Delivered across Canada.</p>
+        <Link href="/shop" className="mt-6 inline-block bg-white text-indigo-600 font-semibold px-6 py-3 rounded-xl shadow hover:scale-105 transition">Shop Now</Link>
+      </section>
+
+      <section>
+        <h2 className="text-2xl font-bold mb-4">Our Collections</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <Link href="/shop" className="bg-white p-6 rounded-xl shadow hover:shadow-lg">Luxury</Link>
+          <Link href="/shop" className="bg-white p-6 rounded-xl shadow hover:shadow-lg">Aromatherapy</Link>
+          <Link href="/shop" className="bg-white p-6 rounded-xl shadow hover:shadow-lg">Seasonal</Link>
+          <Link href="/shop" className="bg-white p-6 rounded-xl shadow hover:shadow-lg">Personalized</Link>
         </div>
-        <figure class="about-media">
-          <img src="https://images.unsplash.com/photo-1519681393784-7f3b70cacb06?q=80&w=1200&auto=format&fit=crop" alt="Close-up of a soy candle being poured" loading="lazy" />
-        </figure>
-      </div>
-    </section>
-
-    <section id="faq" class="container section">
-      <header class="section-head">
-        <h2>FAQs</h2>
-      </header>
-      <details>
-        <summary>What makes your candles different?</summary>
-        <div class="details-body">
-          <p>Our candles are made from 100% soy wax with carefully balanced fragrance loads for a clean, even burn and beautiful scent throw.</p>
-        </div>
-      </details>
-      <details>
-        <summary>Do you offer custom labels for gifts or events?</summary>
-        <div class="details-body">
-          <p>Yes—share names, dates, or a short message. We’ll send a proof before production.</p>
-        </div>
-      </details>
-      <details>
-        <summary>Where are you located?</summary>
-        <div class="details-body">
-          <p>Ottawa, Canada. We accept local orders and ship within Canada.</p>
-        </div>
-      </details>
-    </section>
-
-    <section id="contact" class="section alt">
-      <div class="container contact">
-        <header class="section-head">
-          <h2>Contact & Orders</h2>
-          <p>Ready to order? Email us with your candle choice and any personalization details.</p>
-        </header>
-
-        <div class="contact-grid">
-          <div>
-            <h3>Contact</h3>
-            <p><strong>Punam Kulla</strong><br/>
-            <a href="mailto:kullapunam101@gmail.com">kullapunam101@gmail.com</a><br/>
-            Ottawa, Canada</p>
-            <p class="socials">
-              <a href="https://instagram.com/REPLACE_WITH_YOUR_HANDLE" aria-label="Instagram - Givana &amp; Co" target="_blank" rel="noopener">Instagram</a>
-              <a href="https://facebook.com/REPLACE_WITH_YOUR_PAGE" aria-label="Facebook - Givana &amp; Co" target="_blank" rel="noopener">Facebook</a>
-            </p>
-          </div>
-
-          <form class="contact-form" onsubmit="return handleSubmit(event)">
-            <label for="name">Name</label>
-            <input id="name" name="name" placeholder="Your name" required />
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" required />
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Tell us about your order or personalization"></textarea>
-            <button type="submit" class="btn primary">Send Email</button>
-            <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <small>© 2025 Givana. All rights reserved.</small>
-      <a href="#top" class="text-link">Back to top ↑</a>
+      </section>
     </div>
-  </footer>
+  );
+}
+// app/shop/page.tsx
+import Link from "next/link";
 
-  <script src="script.js"></script>
-</body>
-:root{
-  --bg:#0f0f10;
-  --card:#151517;
-  --text:#e8e9ec;
-  --muted:#b8bbc7;
-  --brand:#e0bfa8;
-  --brand-2:#f2d7c3;
-  --accent:#fff;
-  --radius:14px;
-  --shadow: 0 10px 30px rgba(0,0,0,.25);
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-  color:var(--text);
-  background:linear-gradient(180deg,#0d0d0e, #141416 30%, #0f0f10);
-  line-height:1.6;
-}
-h1,h2,h3{font-family:"Playfair Display", Georgia, serif; line-height:1.2; margin:0 0 .6rem}
-h1{font-size: clamp(2rem, 3.5vw, 3.4rem)}
-h2{font-size: clamp(1.6rem, 2.4vw, 2.2rem)}
-h3{font-size: clamp(1.2rem, 2vw, 1.3rem)}
-p{margin:.5rem 0 1rem;color:var(--muted)}
-a{color:var(--brand-2); text-decoration:none}
-a:hover{text-decoration:underline}
-.container{max-width:1100px;margin:0 auto;padding:0 1.2rem}
-.section{padding:4rem 0}
-.section.alt{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0) 80%);}
-.section-head{margin-bottom:1.2rem}
-.btn{
-  display:inline-block;
-  background:var(--card);
-  color:var(--accent);
-  padding:.75rem 1rem;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.08);
-  box-shadow: var(--shadow);
-  text-decoration:none;
-  font-weight:600;
-}
-.btn.primary{
-  background: linear-gradient(135deg, var(--brand), var(--brand-2));
-  color:#111;
-  border: none;
-}
-.btn.ghost{
-  background:transparent;
-  border:1px solid rgba(255,255,255,.2);
-}
-.text-link{color:var(--brand-2); font-weight:600}
-.text-link:hover{text-decoration:underline}
+const products = [
+  { id: 1, name: "Aurora Nights", desc: "Lavender & Sage", price: "$28" },
+  { id: 2, name: "Seascape Breeze", desc: "Coconut & Sea Salt", price: "$30" },
+];
 
-.skip-link{
-  position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
+export default function ShopPage() {
+  return (
+    <div>
+      <h1 className="text-3xl font-bold mb-6">Shop Candles</h1>
+      <div className="grid grid-cols-2 gap-6">
+        {products.map(p => (
+          <Link key={p.id} href={`/shop/${p.id}`} className="bg-white p-4 rounded-xl shadow hover:shadow-lg">
+            <h2 className="text-xl font-semibold">{p.name}</h2>
+            <p>{p.desc}</p>
+            <p className="mt-2 font-bold">{p.price}</p>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
 }
-.skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;background:#fff;color:#111;padding:.5rem .75rem;border-radius:8px}
+// app/shop/[id]/page.tsx (Product Detail)
+"use client";
+import { useParams } from "next/navigation";
+import Link from "next/link";
 
-.site-header{
-  position:sticky; top:0; backdrop-filter: blur(8px);
-  background: rgba(13,13,14,.5);
-  border-bottom:1px solid rgba(255,255,255,.06);
-  z-index: 20;
+export default function ProductPage() {
+  const { id } = useParams();
+  return (
+    <div>
+      <h1 className="text-3xl font-bold">Aurora Nights</h1>
+      <p className="mt-2">Lavender & Sage blend. 45 hrs burn. Hand-poured soy.</p>
+      <p className="mt-2 font-bold">$28</p>
+      <Link href="/cart" className="inline-block mt-6 bg-indigo-600 text-white px-6 py-3 rounded-xl shadow hover:scale-105 transition">Add to Cart</Link>
+    </div>
+  );
 }
-.nav{display:flex; align-items:center; justify-content:space-between; min-height:64px}
-.logo{
-  font-family:"Playfair Display", Georgia, serif;
-  font-size:1.4rem; color:#fff; font-weight:700; letter-spacing:.5px;
-}
-.menu{display:flex; gap:1rem; list-style:none; margin:0; padding:0; align-items:center}
-.menu a{display:block; padding:.5rem .6rem; border-radius:10px}
-.menu .btn{padding:.55rem .8rem}
-.nav-toggle{display:none; background:none; border:none; color:#fff; font-size:1.4rem}
+// app/cart/page.tsx
+import Link from "next/link";
 
-.hero{
-  padding: clamp(2rem,5vw,5rem) 0;
-  background:
-    radial-gradient(1200px 400px at 10% -20%, rgba(226,190,168,.20), transparent 60%),
-    radial-gradient(1200px 400px at 90% 0%, rgba(242,215,195,.12), transparent 60%);
+export default function CartPage() {
+  return (
+    <div>
+      <h1 className="text-3xl font-bold mb-6">Your Cart</h1>
+      <p>1 × Aurora Nights – $28</p>
+      <Link href="/checkout" className="inline-block mt-6 bg-green-600 text-white px-6 py-3 rounded-xl shadow hover:scale-105 transition">Proceed to Checkout</Link>
+    </div>
+  );
 }
-.hero-inner{display:grid; grid-template-columns: 1.15fr .85fr; gap:2rem; align-items:center}
-.hero-copy .lead{font-size: clamp(1rem, 1.6vw, 1.2rem)}
-.hero .usp{display:flex; gap:1rem; list-style:none; padding:0; margin:1rem 0 0}
-.hero .usp li{
-  background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.09);
-  padding:.5rem .75rem; border-radius:999px; color:#d9dbe5
-}
-.hero-media img{
-  width:100%; height:auto; border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-.grid.cards{
-  display:grid; grid-template-columns: repeat(3, 1fr); gap:1.2rem
-}
-.card{
-  background: var(--card); border:1px solid rgba(255,255,255,.06);
-  border-radius: var(--radius);
-  overflow:hidden; display:flex; flex-direction:column; box-shadow: var(--shadow);
-}
-.card img{width:100%; height:220px; object-fit:cover}
-.card-body{padding:1rem 1rem 1.2rem}
-
-.steps{
-  counter-reset: step;
-  display:flex; gap:1rem; flex-wrap:wrap; padding:0; margin:1rem 0 2rem; list-style:none
-}
-.steps li{
-  position:relative; background:var(--card); border:1px solid rgba(255,255,255,.08);
-  border-radius:12px; padding:1rem 1rem 1rem 3.2rem; min-width:240px;
-}
-.steps li::before{
-  counter-increment: step; content: counter(step);
-  position:absolute; left:.8rem; top:.8rem;
-  width:2rem; height:2rem; border-radius:50%; display:grid; place-items:center;
-  background: linear-gradient(135deg, var(--brand), var(--brand-2)); color:#111; font-weight:700;
-}
-
-.about{display:grid; grid-template-columns: 1.1fr .9fr; gap:2rem; align-items:center}
-.about-media img{width:100%; height:auto; border-radius: var(--radius); box-shadow: var(--shadow)}
-.highlights{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:.5rem; list-style:none; padding:0; margin:1rem 0 0}
-.highlights li{
-  background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.09);
-  padding:.5rem .75rem; border-radius:10px; color:#d9dbe5; text-align:center
-}
-
-details{background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:.8rem 1rem; margin:.6rem 0}
-details[open] summary{margin-bottom:.5rem}
-summary{cursor:pointer; font-weight:600; color:#fff}
-
-.contact .contact-grid{
-  display:grid; grid-template-columns: 1fr 1.1fr; gap:2rem; align-items:start
-}
-.contact-form{
-  background: var(--card);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:12px; padding:1rem;
-  box-shadow: var(--shadow);
-  display:grid; gap:.6rem
-}
-.contact-form input, .contact-form textarea{
-  width:100%; padding:.7rem .8rem; border-radius:10px; border:1px solid rgba(255,255,255,.15);
-  background:#0f0f11; color:#fff
-}
-.form-status{margin:.2rem 0 0; color: var(--brand-2); min-height:1.2em}
-
-.site-footer{
-  border-top:1px solid rgba(255,255,255,.08);
-  padding:2rem 0; color:#b7b9c6;
-}
-.footer-inner{display:flex; align-items:center; justify-content:space-between}
-
-/* --- Shop tweaks --- */
-.shop-cards .product .price{font-weight:700; color:#fff; margin:.2rem 0 .6rem}
-.shop-cards .product .bullets{list-style:none; padding:0; margin:.5rem 0 1rem; color:var(--muted)}
-.shop-cards .product .bullets li{margin:.15rem 0}
-.micro-note{color:var(--muted); font-size:.85rem; margin-top:.6rem}
-
-@media (max-width: 980px){
-  .hero-inner,.about{grid-template-columns:1fr}
-  .grid.cards{grid-template-columns: 1fr 1fr}
-  .highlights{grid-template-columns:1fr 1fr 1fr}
-}
-@media (max-width: 720px){
-  .menu{display:none; position:absolute; right:1rem; top:64px; background: rgba(20,20,22,.95);
-    padding:.6rem; border-radius:12px; border:1px solid rgba(255,255,255,.06); flex-direction:column; width:min(92vw, 320px)}
-  .nav-toggle{display:block}
-  .grid.cards{grid-template-columns: 1fr}
-  .highlights{grid-template-columns:1fr 1fr}
-  .contact .contact-grid{grid-template-columns:1fr}
-}
-.sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
-// Mobile menu toggle
-const navToggle = document.querySelector('.nav-toggle');
-const menu = document.getElementById('menu');
-if (navToggle && menu){
-  navToggle.addEventListener('click', () => {
-    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-    navToggle.setAttribute('aria-expanded', String(!expanded));
-    menu.style.display = expanded ? 'none' : 'flex';
-  });
-}
-
-// Simple email handoff
-function handleSubmit(e){
-  e.preventDefault();
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const message = document.getElementById('message').value.trim();
-  const status = document.getElementById('formStatus');
-
-  const subject = encodeURIComponent('New candle order inquiry');
-  const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-  const mailto = `mailto:kullapunam101@gmail.com?subject=${subject}&body=${body}`;
-
-  status.textContent = 'Opening your email app…';
-  window.location.href = mailto;
-
-  setTimeout(()=>{
-    status.textContent = 'If your email app did not open, please email us at: kullapunam101@gmail.com';
-  }, 1200);
-
-  return false;
-}
-
-// Quick order buttons
-document.querySelectorAll('.order-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const nameInput = document.getElementById('name');
-    const msg = document.getElementById('message');
-
-    const product = btn.dataset.product || 'Candle';
-    const price = btn.dataset.price ? `CAD $${btn.dataset.price}` : '';
-    const variant = btn.dataset.variant || '';
-    const template = `I'd like to order:\n• Product: ${product}\n• Variant: ${variant}\n• Price: ${price}\n\nScent preference:\nQuantity:\nPersonalization (if any):\nDelivery address:\n`;
-
-    msg.value = template;
-    window.location.hash = '#contact';
-    nameInput.focus();
-  });
-});
