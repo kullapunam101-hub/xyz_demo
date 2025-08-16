@@ -270,4 +270,224 @@
 
   <script src="script.js"></script>
 </body>
-</html>
+:root{
+  --bg:#0f0f10;
+  --card:#151517;
+  --text:#e8e9ec;
+  --muted:#b8bbc7;
+  --brand:#e0bfa8;
+  --brand-2:#f2d7c3;
+  --accent:#fff;
+  --radius:14px;
+  --shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  color:var(--text);
+  background:linear-gradient(180deg,#0d0d0e, #141416 30%, #0f0f10);
+  line-height:1.6;
+}
+h1,h2,h3{font-family:"Playfair Display", Georgia, serif; line-height:1.2; margin:0 0 .6rem}
+h1{font-size: clamp(2rem, 3.5vw, 3.4rem)}
+h2{font-size: clamp(1.6rem, 2.4vw, 2.2rem)}
+h3{font-size: clamp(1.2rem, 2vw, 1.3rem)}
+p{margin:.5rem 0 1rem;color:var(--muted)}
+a{color:var(--brand-2); text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1100px;margin:0 auto;padding:0 1.2rem}
+.section{padding:4rem 0}
+.section.alt{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0) 80%);}
+.section-head{margin-bottom:1.2rem}
+.btn{
+  display:inline-block;
+  background:var(--card);
+  color:var(--accent);
+  padding:.75rem 1rem;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow: var(--shadow);
+  text-decoration:none;
+  font-weight:600;
+}
+.btn.primary{
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color:#111;
+  border: none;
+}
+.btn.ghost{
+  background:transparent;
+  border:1px solid rgba(255,255,255,.2);
+}
+.text-link{color:var(--brand-2); font-weight:600}
+.text-link:hover{text-decoration:underline}
+
+.skip-link{
+  position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
+}
+.skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;background:#fff;color:#111;padding:.5rem .75rem;border-radius:8px}
+
+.site-header{
+  position:sticky; top:0; backdrop-filter: blur(8px);
+  background: rgba(13,13,14,.5);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  z-index: 20;
+}
+.nav{display:flex; align-items:center; justify-content:space-between; min-height:64px}
+.logo{
+  font-family:"Playfair Display", Georgia, serif;
+  font-size:1.4rem; color:#fff; font-weight:700; letter-spacing:.5px;
+}
+.menu{display:flex; gap:1rem; list-style:none; margin:0; padding:0; align-items:center}
+.menu a{display:block; padding:.5rem .6rem; border-radius:10px}
+.menu .btn{padding:.55rem .8rem}
+.nav-toggle{display:none; background:none; border:none; color:#fff; font-size:1.4rem}
+
+.hero{
+  padding: clamp(2rem,5vw,5rem) 0;
+  background:
+    radial-gradient(1200px 400px at 10% -20%, rgba(226,190,168,.20), transparent 60%),
+    radial-gradient(1200px 400px at 90% 0%, rgba(242,215,195,.12), transparent 60%);
+}
+.hero-inner{display:grid; grid-template-columns: 1.15fr .85fr; gap:2rem; align-items:center}
+.hero-copy .lead{font-size: clamp(1rem, 1.6vw, 1.2rem)}
+.hero .usp{display:flex; gap:1rem; list-style:none; padding:0; margin:1rem 0 0}
+.hero .usp li{
+  background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.09);
+  padding:.5rem .75rem; border-radius:999px; color:#d9dbe5
+}
+.hero-media img{
+  width:100%; height:auto; border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.grid.cards{
+  display:grid; grid-template-columns: repeat(3, 1fr); gap:1.2rem
+}
+.card{
+  background: var(--card); border:1px solid rgba(255,255,255,.06);
+  border-radius: var(--radius);
+  overflow:hidden; display:flex; flex-direction:column; box-shadow: var(--shadow);
+}
+.card img{width:100%; height:220px; object-fit:cover}
+.card-body{padding:1rem 1rem 1.2rem}
+
+.steps{
+  counter-reset: step;
+  display:flex; gap:1rem; flex-wrap:wrap; padding:0; margin:1rem 0 2rem; list-style:none
+}
+.steps li{
+  position:relative; background:var(--card); border:1px solid rgba(255,255,255,.08);
+  border-radius:12px; padding:1rem 1rem 1rem 3.2rem; min-width:240px;
+}
+.steps li::before{
+  counter-increment: step; content: counter(step);
+  position:absolute; left:.8rem; top:.8rem;
+  width:2rem; height:2rem; border-radius:50%; display:grid; place-items:center;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2)); color:#111; font-weight:700;
+}
+
+.about{display:grid; grid-template-columns: 1.1fr .9fr; gap:2rem; align-items:center}
+.about-media img{width:100%; height:auto; border-radius: var(--radius); box-shadow: var(--shadow)}
+.highlights{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:.5rem; list-style:none; padding:0; margin:1rem 0 0}
+.highlights li{
+  background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.09);
+  padding:.5rem .75rem; border-radius:10px; color:#d9dbe5; text-align:center
+}
+
+details{background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:.8rem 1rem; margin:.6rem 0}
+details[open] summary{margin-bottom:.5rem}
+summary{cursor:pointer; font-weight:600; color:#fff}
+
+.contact .contact-grid{
+  display:grid; grid-template-columns: 1fr 1.1fr; gap:2rem; align-items:start
+}
+.contact-form{
+  background: var(--card);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:12px; padding:1rem;
+  box-shadow: var(--shadow);
+  display:grid; gap:.6rem
+}
+.contact-form input, .contact-form textarea{
+  width:100%; padding:.7rem .8rem; border-radius:10px; border:1px solid rgba(255,255,255,.15);
+  background:#0f0f11; color:#fff
+}
+.form-status{margin:.2rem 0 0; color: var(--brand-2); min-height:1.2em}
+
+.site-footer{
+  border-top:1px solid rgba(255,255,255,.08);
+  padding:2rem 0; color:#b7b9c6;
+}
+.footer-inner{display:flex; align-items:center; justify-content:space-between}
+
+/* --- Shop tweaks --- */
+.shop-cards .product .price{font-weight:700; color:#fff; margin:.2rem 0 .6rem}
+.shop-cards .product .bullets{list-style:none; padding:0; margin:.5rem 0 1rem; color:var(--muted)}
+.shop-cards .product .bullets li{margin:.15rem 0}
+.micro-note{color:var(--muted); font-size:.85rem; margin-top:.6rem}
+
+@media (max-width: 980px){
+  .hero-inner,.about{grid-template-columns:1fr}
+  .grid.cards{grid-template-columns: 1fr 1fr}
+  .highlights{grid-template-columns:1fr 1fr 1fr}
+}
+@media (max-width: 720px){
+  .menu{display:none; position:absolute; right:1rem; top:64px; background: rgba(20,20,22,.95);
+    padding:.6rem; border-radius:12px; border:1px solid rgba(255,255,255,.06); flex-direction:column; width:min(92vw, 320px)}
+  .nav-toggle{display:block}
+  .grid.cards{grid-template-columns: 1fr}
+  .highlights{grid-template-columns:1fr 1fr}
+  .contact .contact-grid{grid-template-columns:1fr}
+}
+.sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
+// Mobile menu toggle
+const navToggle = document.querySelector('.nav-toggle');
+const menu = document.getElementById('menu');
+if (navToggle && menu){
+  navToggle.addEventListener('click', () => {
+    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', String(!expanded));
+    menu.style.display = expanded ? 'none' : 'flex';
+  });
+}
+
+// Simple email handoff
+function handleSubmit(e){
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+  const status = document.getElementById('formStatus');
+
+  const subject = encodeURIComponent('New candle order inquiry');
+  const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+  const mailto = `mailto:kullapunam101@gmail.com?subject=${subject}&body=${body}`;
+
+  status.textContent = 'Opening your email app…';
+  window.location.href = mailto;
+
+  setTimeout(()=>{
+    status.textContent = 'If your email app did not open, please email us at: kullapunam101@gmail.com';
+  }, 1200);
+
+  return false;
+}
+
+// Quick order buttons
+document.querySelectorAll('.order-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const nameInput = document.getElementById('name');
+    const msg = document.getElementById('message');
+
+    const product = btn.dataset.product || 'Candle';
+    const price = btn.dataset.price ? `CAD $${btn.dataset.price}` : '';
+    const variant = btn.dataset.variant || '';
+    const template = `I'd like to order:\n• Product: ${product}\n• Variant: ${variant}\n• Price: ${price}\n\nScent preference:\nQuantity:\nPersonalization (if any):\nDelivery address:\n`;
+
+    msg.value = template;
+    window.location.hash = '#contact';
+    nameInput.focus();
+  });
+});
