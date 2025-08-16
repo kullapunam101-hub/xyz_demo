@@ -1,29 +1,70 @@
-vectormind-ai/
-├── app/
-│   ├── layout.tsx
-│   ├── page.tsx                 # Home
-│   ├── services/
-│   │   ├── page.tsx             # Services overview
-│   │   ├── ai-systems/page.mdx
-│   │   ├── full-stack/page.mdx
-│   │   ├── chatbots/page.mdx
-│   │   ├── voice/page.mdx
-│   │   ├── workflows/page.mdx
-│   │   ├── consulting/page.mdx
-│   ├── case-studies/
-│   │   ├── page.tsx             # Case study grid
-│   │   ├── retail-automation.mdx
-│   │   ├── finance-chatbots.mdx
-│   │   ├── healthcare-voice.mdx
-│   ├── pricing/page.mdx
-│   ├── about/page.mdx
-│   ├── resources/page.tsx       # Blog index
-│   ├── contact/page.tsx
-│   ├── legal/
-│   │   ├── privacy.mdx
-│   │   ├── terms.mdx
-├── components/                  # Reusable UI
-├── content/faq.mdx              # FAQs
-├── public/                      # Logos, SVGs, placeholders
-├── styles/globals.css
-├── README.md
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>VectorMind AI — Enterprise AI, engineered for outcomes</title>
+  <meta name="description" content="VectorMind AI designs and engineers production-ready AI systems, apps, and automations that compound your team's leverage. Book a strategy call." />
+  <link rel="canonical" href="https://vectormind.ai/" />
+  <meta name="theme-color" content="#0f1115" />
+  <meta name="color-scheme" content="dark light" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="VectorMind AI — Enterprise AI, engineered for outcomes" />
+  <meta property="og:description" content="Deploy AI that ships outcomes—fast. RAG systems, full-stack apps, chatbots, voice assistants, and workflow automations." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vectormind.ai/" />
+  <meta property="og:image" content="https://vectormind.ai/og-card.png" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="VectorMind AI — Enterprise AI, engineered for outcomes" />
+  <meta name="twitter:description" content="Deploy AI that ships outcomes—fast. RAG systems, full-stack apps, chatbots, voice assistants, and workflow automations." />
+  <meta name="twitter:image" content="https://vectormind.ai/og-card.png" />
+  <!-- PWA icons (placeholders) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect width='64' height='64' rx='12' fill='%230f1115'/%3E%3Cpath d='M18 44L32 12l14 32' stroke='%238ea0ff' stroke-width='4' fill='none'/%3E%3C/svg%3E" />
+  <style>
+    /* =========================================
+       VectorMind AI – Inline Design System
+       ========================================= */
+
+    :root{
+      --bg:#0f1115;            /* deep charcoal */
+      --elev:#12141c;          /* panel bg */
+      --muted:#1a1f2b;         /* card bg */
+      --line:rgba(255,255,255,.08);
+      --text:#e9eaf2;          /* primary text */
+      --subtle:#b6bdcc;        /* secondary */
+      --ok:#22c55e;
+      --warn:#f59e0b;
+      --danger:#ef4444;
+      --accentA:#5a7cff;       /* electric blue */
+      --accentB:#8b5cf6;       /* violet */
+      --shadow:0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
+      --radius-xl:1.25rem;     /* 20px */
+      --radius-lg:.875rem;     /* 14px */
+      --radius-md:.625rem;     /* 10px */
+      --pad: clamp(16px, 2vw, 28px);
+      --container: 1200px;
+      --trans: 240ms cubic-bezier(.2,.8,.2,1);
+      --focus: 2px solid rgba(138, 92, 246, .8);
+      --glass: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root{
+        --bg:#f7f7fb;
+        --elev:#ffffff;
+        --muted:#f4f5f9;
+        --line:rgba(16,16,24,.08);
+        --text:#101423;
+        --subtle:#424a5d;
+        --shadow:0 10px 30px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.6);
+        --glass: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.7));
+      }
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
