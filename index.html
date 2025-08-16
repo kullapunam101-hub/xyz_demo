@@ -1,104 +1,306 @@
-// app/layout.tsx
-import "./globals.css";
-import Link from "next/link";
-
-export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body className="font-inter bg-neutral-50 text-neutral-900">
-        <header className="sticky top-0 bg-white shadow">
-          <nav className="max-w-6xl mx-auto flex justify-between items-center p-4">
-            <Link href="/" className="text-xl font-bold">Givana & Co.</Link>
-            <div className="flex gap-6">
-              <Link href="/shop">Shop</Link>
-              <Link href="/about">About</Link>
-              <Link href="/contact">Contact</Link>
-              <Link href="/cart">Cart</Link>
-            </div>
-          </nav>
-        </header>
-        <main className="max-w-6xl mx-auto p-6">{children}</main>
-        <footer className="bg-neutral-100 mt-12 p-6 text-center">
-          <p>© 2025 Givana & Co. | Hand-poured soy candles</p>
-        </footer>
-      </body>
-    </html>
-  );
-}
-
-// app/page.tsx (Home)
-import Link from "next/link";
-
-export default function HomePage() {
-  return (
-    <div className="space-y-12">
-      <section className="text-center py-20 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white rounded-2xl shadow">
-        <h1 className="text-4xl font-bold">Every scent tells a story</h1>
-        <p className="mt-4">Hand-poured soy candles. Organic. Sustainable. Delivered across Canada.</p>
-        <Link href="/shop" className="mt-6 inline-block bg-white text-indigo-600 font-semibold px-6 py-3 rounded-xl shadow hover:scale-105 transition">Shop Now</Link>
-      </section>
-
-      <section>
-        <h2 className="text-2xl font-bold mb-4">Our Collections</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <Link href="/shop" className="bg-white p-6 rounded-xl shadow hover:shadow-lg">Luxury</Link>
-          <Link href="/shop" className="bg-white p-6 rounded-xl shadow hover:shadow-lg">Aromatherapy</Link>
-          <Link href="/shop" className="bg-white p-6 rounded-xl shadow hover:shadow-lg">Seasonal</Link>
-          <Link href="/shop" className="bg-white p-6 rounded-xl shadow hover:shadow-lg">Personalized</Link>
-        </div>
-      </section>
-    </div>
-  );
-}
-// app/shop/page.tsx
-import Link from "next/link";
-
-const products = [
-  { id: 1, name: "Aurora Nights", desc: "Lavender & Sage", price: "$28" },
-  { id: 2, name: "Seascape Breeze", desc: "Coconut & Sea Salt", price: "$30" },
-];
-
-export default function ShopPage() {
-  return (
-    <div>
-      <h1 className="text-3xl font-bold mb-6">Shop Candles</h1>
-      <div className="grid grid-cols-2 gap-6">
-        {products.map(p => (
-          <Link key={p.id} href={`/shop/${p.id}`} className="bg-white p-4 rounded-xl shadow hover:shadow-lg">
-            <h2 className="text-xl font-semibold">{p.name}</h2>
-            <p>{p.desc}</p>
-            <p className="mt-2 font-bold">{p.price}</p>
-          </Link>
-        ))}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Candle Collection — Demo</title>
+  <style>
+    :root{
+      --ink:#0F1115; --paper:#F7F7F5; --card:#FFFFFF; --muted:#6b7280;
+      --accent:#6E7CFB; --accent2:#7A4DF3; --border:#E5E7EB; --success:#059669; --danger:#DC2626;
+      --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;background:var(--paper);color:var(--ink);font:14px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1160px;margin:0 auto;padding:20px}
+    .header{position:sticky;top:0;background:rgba(247,247,245,.85);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--border);z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+    .brand{font-weight:700;letter-spacing:.2px}
+    .pill{border:1px solid var(--border);padding:8px 12px;border-radius:999px}
+    .grid{display:grid;gap:16px}
+    @media(min-width:768px){ .grid-cols-3{grid-template-columns:repeat(3,1fr)} .grid-cols-4{grid-template-columns:repeat(4,1fr)} }
+    @media(min-width:1024px){ .grid-cols-4{grid-template-columns:repeat(4,1fr)} }
+    .toolbar{display:grid;gap:10px;margin:16px 0}
+    @media(min-width:768px){ .toolbar{grid-template-columns: 2fr 1fr 1fr 1fr; align-items:center} }
+    input[type="text"],select,.input{width:100%;border:1px solid var(--border);border-radius:12px;padding:10px 12px;background:#fff}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+    .img{aspect-ratio:1/1;background:linear-gradient(135deg, #eceff9, #fafafa)}
+    .badge{position:absolute;top:10px;left:10px;background:#111;color:#fff;font-size:12px;padding:6px 8px;border-radius:999px}
+    .sold{position:absolute;top:10px;right:10px;background:var(--danger);color:#fff;font-size:12px;padding:6px 8px;border-radius:8px}
+    .card-body{padding:12px}
+    .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:12px;padding:10px 12px;border:1px solid var(--border);background:#fff;cursor:pointer;transition:.2s}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+    .stars{color:#f59e0b}
+    .muted{color:var(--muted)}
+    .section{margin:24px 0}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    /* Product page */
+    .hidden{display:none !important}
+    .product-wrap{display:grid;gap:24px}
+    @media(min-width:900px){.product-wrap{grid-template-columns:1.1fr 1fr}}
+    .hero-img{width:100%;border:1px solid var(--border);border-radius:16px;aspect-ratio:4/3;background:linear-gradient(135deg,#e9ecfb,#fefefe)}
+    .price{font-weight:700}
+    .chip{border:1px solid var(--border);padding:6px 10px;border-radius:999px;background:#fff}
+    .footer{border-top:1px solid var(--border);padding:30px 20px;color:var(--muted);text-align:center}
+    .ribbon{position:absolute;inset:auto 12px 12px auto;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;padding:8px 10px;border-radius:10px;font-size:12px}
+    .announce{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:10px 14px;border-radius:12px;opacity:0;transition:.25s}
+    .announce.show{opacity:1}
+  </style>
+</head>
+<body>
+  <header class="header" role="banner">
+    <nav class="nav container" aria-label="Primary">
+      <a href="#shop" class="brand">Candle Shop Demo</a>
+      <div class="row">
+        <span id="cartCount" class="pill" aria-live="polite">Cart (0)</span>
       </div>
-    </div>
-  );
-}
-// app/shop/[id]/page.tsx (Product Detail)
-"use client";
-import { useParams } from "next/navigation";
-import Link from "next/link";
+    </nav>
+  </header>
 
-export default function ProductPage() {
-  const { id } = useParams();
-  return (
-    <div>
-      <h1 className="text-3xl font-bold">Aurora Nights</h1>
-      <p className="mt-2">Lavender & Sage blend. 45 hrs burn. Hand-poured soy.</p>
-      <p className="mt-2 font-bold">$28</p>
-      <Link href="/cart" className="inline-block mt-6 bg-indigo-600 text-white px-6 py-3 rounded-xl shadow hover:scale-105 transition">Add to Cart</Link>
-    </div>
-  );
-}
-// app/cart/page.tsx
-import Link from "next/link";
+  <main id="app" class="container" role="main">
+    <!-- SHOP (collection) -->
+    <section id="shopView" class="section" aria-labelledby="shop-heading">
+      <h1 id="shop-heading" class="sr-only">Candle collection</h1>
 
-export default function CartPage() {
-  return (
-    <div>
-      <h1 className="text-3xl font-bold mb-6">Your Cart</h1>
-      <p>1 × Aurora Nights – $28</p>
-      <Link href="/checkout" className="inline-block mt-6 bg-green-600 text-white px-6 py-3 rounded-xl shadow hover:scale-105 transition">Proceed to Checkout</Link>
-    </div>
-  );
-}
+      <div class="toolbar" role="region" aria-label="Filters and sorting">
+        <label class="sr-only" for="search">Search</label>
+        <input id="search" type="text" placeholder="Search scents…" />
+        <select id="sizeFilter" aria-label="Size">
+          <option value="">All sizes</option>
+          <option value="2">2 oz</option>
+          <option value="3">3 oz</option>
+          <option value="4">4 oz</option>
+          <option value="5.5">5.5 oz</option>
+          <option value="8">8 oz</option>
+          <option value="11">11 oz</option>
+        </select>
+        <div class="row">
+          <input class="input" id="minPrice" type="number" min="0" step="1" placeholder="Min $" style="width:48%" />
+          <input class="input" id="maxPrice" type="number" min="0" step="1" placeholder="Max $" style="width:48%" />
+        </div>
+        <select id="sort" aria-label="Sort by">
+          <option value="featured">Featured</option>
+          <option value="low">Price: low to high</option>
+          <option value="high">Price: high to low</option>
+          <option value="rating">Best rated</option>
+        </select>
+        <label class="row" style="gap:8px;align-items:center">
+          <input id="hideOOS" type="checkbox" /> Hide out of stock
+        </label>
+      </div>
+
+      <div id="grid" class="grid grid-cols-4" aria-live="polite"></div>
+    </section>
+
+    <!-- PRODUCT (detail) -->
+    <section id="productView" class="section hidden" aria-labelledby="product-title">
+      <button class="btn" onclick="navigate('shop')" aria-label="Back to collection">← Back</button>
+      <div class="product-wrap section">
+        <div>
+          <div id="pBadges" class="row"></div>
+          <div class="hero-img" id="pImage" role="img" aria-label=""></div>
+        </div>
+        <div>
+          <h1 id="product-title" style="margin:0 0 6px 0;font-size:26px"></h1>
+          <div class="row" style="gap:12px;margin:6px 0 12px 0">
+            <span id="pRating" class="stars" aria-label=""></span>
+            <span id="pReviews" class="muted"></span>
+          </div>
+          <div class="row" style="gap:8px;margin:6px 0 16px 0">
+            <span id="pPrice" class="price"></span>
+            <span id="pSold" class="chip" style="display:none;background:#fee2e2;border-color:#fecaca;color:#991b1b">Sold out</span>
+          </div>
+
+          <p id="pStory" class="muted" style="margin:12px 0 16px 0"></p>
+
+          <div class="row" style="gap:8px;margin:8px 0 16px 0" id="pSizes"></div>
+
+          <div class="row" style="gap:10px;margin-top:14px">
+            <button id="addBtn" class="btn btn-primary">Add to Cart</button>
+            <a class="btn" href="#shop">Continue shopping</a>
+          </div>
+          <div style="margin-top:12px" class="muted">Clean burn • Cotton wick • Phthalate-free</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="announce" class="announce" role="status" aria-live="polite"></div>
+
+  <footer class="footer">Demo store UI for learning purposes.</footer>
+
+  <script>
+    // --- Demo data (replace with your products) ---
+    const PRODUCTS = [
+      { id:"aurora-nights", name:"Aurora Nights", price:32, sizes:["8"], rating:5, reviews:12, featured:true, sold:false, badges:["Bestseller"], story:"Blackcurrant and violet drift into amber musk. Calm, cozy evenings." },
+      { id:"sea-salt-sage", name:"Sea Salt + Sage", price:28, sizes:["8","4","2"], rating:4.8, reviews:10, featured:true, sold:false, badges:["Fresh"], story:"Sea spray lifts herbal sage and eucalyptus—airy and bright." },
+      { id:"vanilla-orchid", name:"Vanilla Orchid", price:38, sizes:["11","5.5","3"], rating:4.9, reviews:16, featured:false, sold:false, badges:["Floral"], story:"Bergamot, orchid, vanilla and tonka—soft, modern comfort." },
+      { id:"cedar-embers", name:"Cedar & Embers", price:32, sizes:["8"], rating:4.7, reviews:8, featured:false, sold:false, badges:["Woody"], story:"Cardamom and smoked cedar over vetiver—fireside depth." },
+      { id:"confetti", name:"Confetti", price:9, sizes:["2","8"], rating:4.6, reviews:3, featured:false, sold:false, badges:["Limited"], story:"A playful bouquet with a party pop of citrus and petals." },
+      { id:"mystery", name:"Mystery Candle", price:9, sizes:["2","3","4","5","8","11"], rating:4.2, reviews:5, featured:false, sold:false, badges:["Surprise"], story:"A lucky dip—discover something new with each burn." },
+      { id:"topaze", name:"Topaze", price:32, sizes:["8","3"], rating:5, reviews:7, featured:false, sold:false, badges:["New"], story:"Radiant citrus glows over amber woods, crisp and elegant." },
+      { id:"coco-mango", name:"Coco Mango", price:32, sizes:["8","2"], rating:5, reviews:3, featured:false, sold:true, badges:["Tropical"], story:"Juicy mango meets creamy coconut for summer vibes." }
+    ];
+
+    // --- State ---
+    const state = {
+      query: "", size: "", min: "", max: "", sort: "featured", hideOOS: false,
+      cart: 0
+    };
+
+    // --- Elements ---
+    const grid = document.getElementById('grid');
+    const search = document.getElementById('search');
+    const sizeFilter = document.getElementById('sizeFilter');
+    const minPrice = document.getElementById('minPrice');
+    const maxPrice = document.getElementById('maxPrice');
+    const sortSel = document.getElementById('sort');
+    const hideOOS = document.getElementById('hideOOS');
+    const cartCount = document.getElementById('cartCount');
+
+    // Product view elements
+    const shopView = document.getElementById('shopView');
+    const productView = document.getElementById('productView');
+    const pTitle = document.getElementById('product-title');
+    const pImage = document.getElementById('pImage');
+    const pBadges = document.getElementById('pBadges');
+    const pRating = document.getElementById('pRating');
+    const pReviews = document.getElementById('pReviews');
+    const pPrice = document.getElementById('pPrice');
+    const pSold = document.getElementById('pSold');
+    const pStory = document.getElementById('pStory');
+    const pSizes = document.getElementById('pSizes');
+    const addBtn = document.getElementById('addBtn');
+    const announce = document.getElementById('announce');
+
+    // --- Helpers ---
+    function stars(n){
+      const full = Math.round(n * 2) / 2;
+      let s = '';
+      for(let i=1;i<=5;i++){
+        if(full >= i) s += '★';
+        else if(full >= i-0.5) s += '☆';
+        else s += '☆';
+      }
+      return s;
+    }
+
+    function formatPrice(v){ return `$${v.toFixed(2)} CAD`; }
+
+    function applyFilters(items){
+      let out = items.slice();
+      if(state.query){
+        const q = state.query.toLowerCase();
+        out = out.filter(p => p.name.toLowerCase().includes(q) || p.story.toLowerCase().includes(q));
+      }
+      if(state.size) out = out.filter(p => p.sizes.includes(state.size));
+      if(state.min) out = out.filter(p => p.price >= Number(state.min));
+      if(state.max) out = out.filter(p => p.price <= Number(state.max));
+      if(state.hideOOS) out = out.filter(p => !p.sold);
+
+      switch(state.sort){
+        case 'low': out.sort((a,b)=>a.price-b.price); break;
+        case 'high': out.sort((a,b)=>b.price-a.price); break;
+        case 'rating': out.sort((a,b)=>b.rating-a.rating); break;
+        default: out.sort((a,b)=> (b.featured|0) - (a.featured|0)); // featured first
+      }
+      return out;
+    }
+
+    function renderGrid(){
+      const items = applyFilters(PRODUCTS);
+      grid.innerHTML = items.map(p => `
+        <article class="card" aria-labelledby="t-${p.id}">
+          <div style="position:relative">
+            ${p.badges?.[0] ? `<span class="badge" aria-label="${p.badges[0]}">${p.badges[0]}</span>` : ""}
+            ${p.sold ? `<span class="sold" aria-label="Sold out">Sold out</span>` : ""}
+            <div class="img" role="img" aria-label="${p.name} candle photo placeholder"></div>
+          </div>
+          <div class="card-body">
+            <div id="t-${p.id}" style="font-weight:600">${p.name}</div>
+            <div class="row" style="gap:6px;margin:6px 0">
+              <span class="stars" aria-hidden="true">${stars(p.rating)}</span>
+              <span class="muted" aria-label="${p.rating} stars">${p.rating.toFixed(1)}</span>
+              <span class="muted">• ${p.reviews} reviews</span>
+            </div>
+            <div class="row" style="justify-content:space-between">
+              <div>${formatPrice(p.price)}</div>
+              <div class="muted">${p.sizes.join(' oz, ')} oz</div>
+            </div>
+            <div class="row" style="gap:8px;margin-top:10px">
+              <a class="btn" href="#product/${p.id}" aria-label="View ${p.name}">View</a>
+              <button class="btn btn-primary" ${p.sold?'disabled':''} onclick="addToCart('${p.id}')">${p.sold?'Sold out':'Add to Cart'}</button>
+            </div>
+          </div>
+        </article>
+      `).join('');
+
+      if(!items.length){
+        grid.innerHTML = `<div class="muted">No products match your filters.</div>`;
+      }
+    }
+
+    function addToCart(id){
+      state.cart++;
+      cartCount.textContent = `Cart (${state.cart})`;
+      flash(`Added to cart`);
+    }
+
+    function flash(msg){
+      announce.textContent = msg;
+      announce.classList.add('show');
+      setTimeout(()=>announce.classList.remove('show'), 1200);
+    }
+
+    // --- Router ---
+    function navigate(view, id){
+      if(view === 'product'){
+        const p = PRODUCTS.find(x=>x.id===id);
+        if(!p){ location.hash = '#shop'; return; }
+        // fill product
+        pTitle.textContent = p.name;
+        pImage.setAttribute('aria-label', `${p.name} image`);
+        pBadges.innerHTML = (p.badges||[]).map(b=>`<span class="chip">${b}</span>`).join('');
+        pRating.innerHTML = stars(p.rating);
+        pRating.setAttribute('aria-label', `${p.rating} out of 5 stars`);
+        pReviews.textContent = `${p.reviews} reviews`;
+        pPrice.textContent = formatPrice(p.price);
+        pSold.style.display = p.sold ? 'inline-flex' : 'none';
+        pStory.textContent = p.story;
+        pSizes.innerHTML = p.sizes.map(s=>`<span class="chip">${s} oz</span>`).join('');
+        addBtn.disabled = p.sold;
+        addBtn.onclick = () => { addToCart(p.id); };
+        shopView.classList.add('hidden');
+        productView.classList.remove('hidden');
+      } else {
+        productView.classList.add('hidden');
+        shopView.classList.remove('hidden');
+      }
+    }
+
+    function handleHash(){
+      const hash = location.hash.replace(/^#/, '');
+      if(hash.startsWith('product/')){
+        const id = hash.split('/')[1];
+        navigate('product', id);
+      } else {
+        navigate('shop');
+      }
+    }
+
+    // --- Wire up ---
+    search.addEventListener('input', e => { state.query = e.target.value.trim(); renderGrid(); });
+    sizeFilter.addEventListener('change', e => { state.size = e.target.value; renderGrid(); });
+    minPrice.addEventListener('change', e => { state.min = e.target.value; renderGrid(); });
+    maxPrice.addEventListener('change', e => { state.max = e.target.value; renderGrid(); });
+    sortSel.addEventListener('change', e => { state.sort = e.target.value; renderGrid(); });
+    hideOOS.addEventListener('change', e => { state.hideOOS = e.target.checked; renderGrid(); });
+    window.addEventListener('hashchange', handleHash);
+
+    renderGrid(); handleHash();
+  </script>
+</body>
+</html>
