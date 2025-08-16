@@ -68,3 +68,841 @@
     body{
       margin:0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(90,124,255,.15), transparent 60%),
+        radial-gradient(1000px 500px at 120% 0%, rgba(139,92,246,.18), transparent 55%),
+        var(--bg);
+      line-height:1.55;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    h1,h2,h3,h4{font-family: "Inter Tight", Inter, ui-sans-serif, system-ui; margin:0 0 .6rem}
+    h1{font-weight:800; letter-spacing:-.02em; font-size:clamp(2.2rem, 4vw + .5rem, 3.4rem)}
+    h2{font-weight:800; letter-spacing:-.02em; font-size:clamp(1.6rem, 2vw + .6rem, 2.4rem)}
+    h3{font-weight:700; font-size:clamp(1.1rem, 1vw + .7rem, 1.5rem)}
+    p{margin:.4rem 0 1rem; color:var(--subtle)}
+    a{color:inherit; text-decoration:none}
+    a[href]:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{outline:var(--focus); outline-offset:2px; border-radius:10px}
+    img{max-width:100%; height:auto; display:block}
+
+    .container{max-width:var(--container); margin-inline:auto; padding-inline:var(--pad)}
+    .surface{background:var(--elev); border:1px solid var(--line); border-radius:var(--radius-xl); box-shadow: var(--shadow)}
+    .card{background:var(--muted); border:1px solid var(--line); border-radius:var(--radius-lg); box-shadow: var(--shadow)}
+    .chip{display:inline-flex; gap:.5rem; align-items:center; padding:.45rem .75rem; background:var(--muted); border:1px solid var(--line); border-radius:999px; font-size:.82rem; color:var(--subtle)}
+    .accent{background: linear-gradient(90deg, var(--accentA), var(--accentB)); -webkit-background-clip:text; background-clip:text; color:transparent}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:.6rem; padding:.9rem 1.1rem; border-radius:.9rem; border:1px solid var(--line); transition: transform var(--trans), box-shadow var(--trans), background var(--trans); font-weight:700; letter-spacing:.01em}
+    .btn-primary{color:#fff; background: linear-gradient(90deg, var(--accentA), var(--accentB)); box-shadow:0 8px 20px rgba(92, 108, 255, .35)}
+    .btn-primary:hover{transform:translateY(-2px)}
+    .btn-ghost{background:transparent}
+    .btn-ghost:hover{background:rgba(255,255,255,.05)}
+    .btn-outline{background:transparent; border:1px solid rgba(255,255,255,.18)}
+    .eyebrow{display:inline-flex; align-items:center; gap:.6rem; font-weight:650; font-size:.85rem; letter-spacing:.08em; text-transform:uppercase; color:var(--subtle)}
+    .grid{display:grid; gap:1.2rem}
+    .grid-2{grid-template-columns: repeat(2, minmax(0,1fr))}
+    .grid-3{grid-template-columns: repeat(3, minmax(0,1fr))}
+    .grid-4{grid-template-columns: repeat(4, minmax(0,1fr))}
+    @media (max-width: 960px){ .grid-2,.grid-3,.grid-4{grid-template-columns: 1fr} }
+    .kbd{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; padding:.2rem .5rem; border-radius:.5rem; background:var(--muted); border:1px solid var(--line); font-size:.86rem; color:var(--subtle)}
+    .muted{color:var(--subtle)}
+    .shadow-soft{box-shadow: var(--shadow)}
+    .sep{height:1px; background:var(--line); margin:1.2rem 0}
+    .badge{padding:.18rem .5rem; border-radius:6px; background:rgba(255,255,255,.06); border:1px solid var(--line); font-size:.78rem; color:var(--subtle)}
+    .sr-only{position:absolute!important; inset:0!important; width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(1px, 1px, 1px, 1px)!important;white-space:nowrap!important;border:0!important}
+
+    /* Header */
+    header.site{
+      position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(10px);
+      background:linear-gradient(180deg, rgba(15,17,21,.75), rgba(15,17,21,.35));
+      border-bottom:1px solid var(--line)
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:1rem; min-height:64px}
+    .brand{display:flex; gap:.8rem; align-items:center}
+    .logo{
+      width:34px;height:34px;border-radius:.6rem;background: radial-gradient(100% 100% at 50% 0%, rgba(255,255,255,.3), rgba(255,255,255,.08)),
+      linear-gradient(135deg, var(--accentA), var(--accentB)); display:grid; place-items:center; color:#fff; font-weight:900
+    }
+    .brand h4{font-weight:800; letter-spacing:.01em}
+    .nav a{color:var(--subtle)}
+    .nav a.active,.nav a:hover{color:var(--text)}
+    .nav-links{display:flex; align-items:center; gap:1rem}
+    .nav-cta{display:flex; align-items:center; gap:.6rem}
+    .menu-btn{display:none}
+    @media (max-width: 980px){ .menu-btn{display:grid}; .nav-links{display:none} }
+
+    /* Hero */
+    .hero{
+      position:relative; padding: clamp(36px, 8vw, 96px) 0;
+      isolation:isolate;
+    }
+    .hero .bgfx{
+      position:absolute; inset:-4px; z-index:-1;
+      background:
+        radial-gradient(600px 240px at 20% 15%, rgba(90,124,255,.18), transparent 60%),
+        radial-gradient(600px 240px at 80% 5%, rgba(139,92,246,.20), transparent 60%);
+      mask-image: linear-gradient(180deg, rgba(0,0,0,1), rgba(0,0,0,.3));
+      pointer-events:none
+    }
+    .hero .wrap{display:grid; gap:2rem; grid-template-columns: 1.2fr .8fr}
+    @media (max-width: 980px){ .hero .wrap{grid-template-columns: 1fr} }
+    .kpis{display:grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap:1rem}
+    @media (max-width: 640px){ .kpis{grid-template-columns: 1fr 1fr} }
+    .kpi{padding:1rem;border-radius:var(--radius-lg); background:var(--muted); border:1px solid var(--line); text-align:center}
+    .kpi .v{font-weight:900; font-size:clamp(1.2rem, 2vw + .6rem, 2rem); background:linear-gradient(90deg,var(--accentA),var(--accentB)); -webkit-background-clip:text; color:transparent}
+
+    /* Proof bar + marquee */
+    .proof{display:flex; gap:.6rem; flex-wrap:wrap}
+    .marquee{
+      display:flex; overflow:auto; gap:1rem; padding: .6rem 0 .2rem; scroll-snap-type:x mandatory
+    }
+    .marquee .logo-chip{
+      scroll-snap-align:start; white-space:nowrap; padding:.6rem .8rem; border-radius:999px; border:1px dashed var(--line); color:var(--subtle); display:inline-flex; align-items:center; gap:.6rem
+    }
+
+    /* Cards & grids */
+    .feature{padding:1rem; display:grid; gap:.6rem}
+    .feature .icon{width:40px;height:40px;border-radius:.8rem; display:grid; place-items:center; background:linear-gradient(135deg, rgba(90,124,255,.22), rgba(139,92,246,.18)); border:1px solid var(--line)}
+    .table{width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border-radius:var(--radius-lg); border:1px solid var(--line)}
+    .table th,.table td{padding:.9rem .9rem; text-align:left; border-bottom:1px solid var(--line)}
+    .table th{color:var(--subtle); font-weight:700; background:linear-gradient(180deg, rgba(255,255,255,.03), transparent)}
+    .table tr:last-child td{border-bottom:0}
+
+    /* Timeline */
+    .timeline{display:grid; gap:1rem}
+    .step{display:grid; grid-template-columns: 36px 1fr; gap:1rem; align-items:start}
+    .bullet{width:36px;height:36px;border-radius:10px; background:linear-gradient(135deg,var(--accentA),var(--accentB)); display:grid; place-items:center; color:#fff; font-weight:800}
+
+    /* Carousel */
+    .carousel{position:relative; overflow:hidden}
+    .carousel-track{display:flex; gap:1rem; transition: transform var(--trans)}
+    .testimonial{min-width: clamp(280px, 45vw, 360px); padding:1rem}
+    .dots{display:flex; gap:.5rem; justify-content:center; padding-top:.6rem}
+    .dot{width:8px;height:8px;border-radius:999px; background:rgba(255,255,255,.25)}
+    .dot.active{background:linear-gradient(90deg,var(--accentA),var(--accentB))}
+
+    /* Accordion */
+    details.faq{background:var(--muted); border:1px solid var(--line); border-radius:var(--radius-lg); padding: .2rem .9rem}
+    details.faq + details.faq{margin-top:.6rem}
+    details.faq[open]{box-shadow:var(--shadow)}
+    details.faq summary{cursor:pointer; padding:.9rem 0; list-style:none; color:var(--text); font-weight:700}
+    details.faq summary::-webkit-details-marker{display:none}
+
+    /* Forms */
+    form .row{display:grid; gap:.8rem; grid-template-columns: repeat(2, minmax(0,1fr))}
+    @media (max-width: 760px){ form .row{grid-template-columns: 1fr} }
+    label{font-weight:600; color:var(--subtle); font-size:.92rem}
+    input, textarea, select{
+      width:100%; padding:.85rem .9rem; color:var(--text); background:var(--elev); border-radius:.7rem; border:1px solid var(--line)
+    }
+    input::placeholder, textarea::placeholder{color:rgba(190,196,214,.6)}
+    .help{font-size:.82rem; color:var(--subtle)}
+    .note{font-size:.86rem; color:var(--subtle)}
+
+    /* Footer */
+    footer{border-top:1px solid var(--line); margin-top:3rem; padding:2rem 0}
+
+    /* Utility */
+    .max-w-sm{max-width:560px}
+    .max-w-md{max-width:720px}
+    .max-w-lg{max-width:920px}
+    .center{text-align:center}
+    .stack-2{display:grid; gap:2rem}
+    .stack-1{display:grid; gap:1rem}
+    .mt-1{margin-top:1rem}.mt-2{margin-top:2rem}.mt-3{margin-top:3rem}
+    .mb-1{margin-bottom:1rem}.mb-2{margin-bottom:2rem}.mb-3{margin-bottom:3rem}
+    .px-section{padding: clamp(28px, 6vw, 72px) 0}
+    .cta-band{display:grid; gap:1rem; align-items:center; text-align:center; padding:1.2rem; background:var(--glass); border:1px solid var(--line); border-radius:var(--radius-xl)}
+    .pill{border-radius:999px}
+    .ghost{opacity:.65}
+    .vis-ch{contain:content}
+
+    @media (prefers-reduced-motion: reduce){
+      *{scroll-behavior:auto!important; animation: none!important; transition: none!important}
+    }
+  </style>
+</head>
+<body>
+  <!-- =================== Consent Banner (stub) =================== -->
+  <div id="consent" role="dialog" aria-live="polite" aria-label="Cookie consent" style="position:fixed; inset:auto 0 0 0; display:none; z-index:60">
+    <div class="container" style="padding:.8rem">
+      <div class="surface" style="display:flex; gap:1rem; align-items:center; justify-content:space-between; padding: .9rem 1rem">
+        <div>
+          <strong>We use minimal analytics.</strong>
+          <p class="muted" style="margin:.2rem 0 0">Help us improve your experience. Toggle analytics below.</p>
+        </div>
+        <div style="display:flex; gap:.5rem; align-items:center">
+          <button class="btn btn-ghost pill" id="consent-decline" aria-label="Decline analytics">Decline</button>
+          <button class="btn btn-primary pill" id="consent-accept" aria-label="Accept analytics">Accept</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =================== Header =================== -->
+  <header class="site">
+    <div class="container nav" role="navigation" aria-label="Primary">
+      <a class="brand" href="#home" aria-label="VectorMind AI home">
+        <span class="logo" aria-hidden="true">V</span>
+        <h4>VectorMind <span class="accent">AI</span></h4>
+        <span class="chip" title="Ottawa, Canada" aria-label="Location">Ottawa, Canada</span>
+      </a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="#services" class="ghost">Services</a>
+        <a href="#cases" class="ghost">Case Studies</a>
+        <a href="#pricing" class="ghost">Pricing</a>
+        <a href="#about" class="ghost">About</a>
+        <a href="#resources" class="ghost">Resources</a>
+        <a href="#contact" class="ghost">Contact</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn btn-ghost pill" href="#pricing">Get a Proposal</a>
+        <a class="btn btn-primary pill" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener" aria-label="Book a Strategy Call (opens Calendly)">Book a Strategy Call</a>
+        <button class="menu-btn btn btn-outline pill" aria-expanded="false" aria-controls="drawer" id="menuBtn">
+          Menu
+        </button>
+      </div>
+    </div>
+    <!-- Mobile drawer -->
+    <div id="drawer" class="container" style="display:none">
+      <div class="surface" style="padding: .8rem 1rem; margin:.5rem 0">
+        <div class="stack-1">
+          <a href="#services">Services</a>
+          <a href="#cases">Case Studies</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#about">About</a>
+          <a href="#resources">Resources</a>
+          <a href="#contact">Contact</a>
+          <div class="sep"></div>
+          <a class="btn btn-primary pill" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Book a Strategy Call</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =================== Hero =================== -->
+  <main id="home" class="hero">
+    <div class="bgfx" aria-hidden="true"></div>
+    <div class="container surface" style="padding: clamp(22px, 3vw, 32px)">
+      <div class="wrap">
+        <section class="stack-2">
+          <div class="eyebrow"><span class="badge">Security-first</span><span class="badge">WCAG 2.2 AA</span><span class="badge">Enterprise Ready</span></div>
+          <header>
+            <h1>Deploy AI that ships <span class="accent">outcomes</span>—fast.</h1>
+            <p class="max-w-md">We design and engineer production-ready systems, apps, and automations that compound your team’s leverage.</p>
+          </header>
+          <div style="display:flex; gap:.6rem; flex-wrap:wrap">
+            <a class="btn btn-primary" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Book a Strategy Call</a>
+            <a class="btn btn-ghost" href="#cases">See Case Studies</a>
+            <span class="chip" aria-label="Contact email">hello@vectormind.ai</span>
+            <span class="chip" aria-label="Phone number">+1 (613) 555-0199</span>
+          </div>
+          <div class="kpis" role="list" aria-label="Impact metrics">
+            <div class="kpi" role="listitem"><div class="v">-38%</div><div class="muted">Handle time</div></div>
+            <div class="kpi" role="listitem"><div class="v">+24%</div><div class="muted">Conversion rate</div></div>
+            <div class="kpi" role="listitem"><div class="v">+12</div><div class="muted">NPS uplift</div></div>
+          </div>
+        </section>
+        <aside>
+          <div class="card" style="padding:1rem">
+            <div class="stack-1">
+              <div class="eyebrow">Quick intro</div>
+              <div class="surface" style="padding:1rem">
+                <h3>Free 20-min Discovery</h3>
+                <p class="muted">Assess feasibility, timeline, and ROI for your use-case. No fluff.</p>
+                <a class="btn btn-primary" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Book Now</a>
+              </div>
+              <div class="sep"></div>
+              <div class="eyebrow">Tech stack</div>
+              <div class="marquee" aria-label="Stack marquee">
+                <span class="logo-chip">
+                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2L1 21h22z"/></svg> OpenAI
+                </span>
+                <span class="logo-chip">
+                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor"/></svg> Anthropic
+                </span>
+                <span class="logo-chip"><span class="kbd">LangChain</span></span>
+                <span class="logo-chip"><span class="kbd">Python</span></span>
+                <span class="logo-chip"><span class="kbd">Node</span></span>
+                <span class="logo-chip"><span class="kbd">React/Next</span></span>
+                <span class="logo-chip">Azure</span>
+                <span class="logo-chip">GCP</span>
+                <span class="logo-chip">AWS</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <div class="container mt-2">
+      <div class="surface" style="padding:1rem">
+        <div class="proof" aria-label="Proof bar">
+          <span class="chip">✅ SOC2-friendly</span>
+          <span class="chip">🔒 Security-first</span>
+          <span class="chip">♿ WCAG 2.2 AA</span>
+          <span class="chip">⚡ Lighthouse 95+</span>
+          <span class="chip">🧪 Evals & Observability</span>
+          <span class="chip">🧱 Guardrails & Handoff</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- =================== Services Overview =================== -->
+  <section id="services" class="px-section">
+    <div class="container stack-2">
+      <header class="center max-w-lg">
+        <span class="eyebrow">What we do</span>
+        <h2>Full-stack AI, from discovery to deployment</h2>
+        <p>Outcome-focused services that move the needle.</p>
+      </header>
+
+      <div class="grid grid-3">
+        <!-- 6 services -->
+        <article class="card feature">
+          <div class="icon" aria-hidden="true">🤖</div>
+          <h3>AI Systems</h3>
+          <p>Data pipelines, RAG, evals, observability.</p>
+          <ul class="muted">
+            <li>• Robust retrieval on private data</li>
+            <li>• Offline/PHI-aware redaction</li>
+            <li>• Continuous evals & drift alerts</li>
+          </ul>
+          <a class="btn btn-ghost" href="#svc-aisystems">Explore →</a>
+        </article>
+        <article class="card feature">
+          <div class="icon">📊</div>
+          <h3>Full-Stack Applications</h3>
+          <p>Dashboards, admin portals, APIs.</p>
+          <ul class="muted">
+            <li>• Role-based auth & audit</li>
+            <li>• Real-time collaboration</li>
+            <li>• API design & SDKs</li>
+          </ul>
+          <a class="btn btn-ghost" href="#svc-fullstack">Explore →</a>
+        </article>
+        <article class="card feature">
+          <div class="icon">💬</div>
+          <h3>AI Chatbots</h3>
+          <p>Support/sales, retrieval, guardrails, analytics.</p>
+          <ul class="muted">
+            <li>• Resolve 60–80% tickets automatically</li>
+            <li>• RAG on your docs</li>
+            <li>• Guardrails + human handoff</li>
+          </ul>
+          <a class="btn btn-ghost" href="#svc-chatbots">Explore →</a>
+        </article>
+        <article class="card feature">
+          <div class="icon">🎙️</div>
+          <h3>Voice Assistants</h3>
+          <p>Telephony, IVR, real-time, diarization.</p>
+          <ul class="muted">
+            <li>• Sub-300ms latency</li>
+            <li>• Call summaries & QA</li>
+            <li>• PCI-safe handling</li>
+          </ul>
+          <a class="btn btn-ghost" href="#svc-voice">Explore →</a>
+        </article>
+        <article class="card feature">
+          <div class="icon">⚙️</div>
+          <h3>Workflow Automations</h3>
+          <p>Zapier/Make/custom, HITL loops.</p>
+          <ul class="muted">
+            <li>• Human-in-the-loop review</li>
+            <li>• Error queues & retries</li>
+            <li>• Measurable time savings</li>
+          </ul>
+          <a class="btn btn-ghost" href="#svc-automation">Explore →</a>
+        </article>
+        <article class="card feature">
+          <div class="icon">🧭</div>
+          <h3>AI Consulting</h3>
+          <p>Roadmaps, audits, governance.</p>
+          <ul class="muted">
+            <li>• Data & risk discovery</li>
+            <li>• Architecture blueprints</li>
+            <li>• Training & enablement</li>
+          </ul>
+          <a class="btn btn-ghost" href="#svc-consulting">Explore →</a>
+        </article>
+      </div>
+
+      <!-- Comparison table -->
+      <div class="surface" style="padding:1rem">
+        <h3 class="mb-1">Which service is right for you?</h3>
+        <div class="table vis-ch" role="table" aria-label="Services comparison">
+          <div style="overflow:auto">
+            <table class="table" aria-describedby="svc-compare-desc">
+              <caption id="svc-compare-desc" class="sr-only">Compare outcomes, timeline, and starting price across services.</caption>
+              <thead>
+                <tr><th>Service</th><th>Primary Outcome</th><th>Typical Timeline</th><th>Starting at</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>AI Systems</td><td>Accurate retrieval & measurable quality</td><td>3–8 weeks</td><td>$25k</td></tr>
+                <tr><td>Full-Stack Apps</td><td>Admin dashboards & APIs in prod</td><td>4–10 weeks</td><td>$25k</td></tr>
+                <tr><td>AI Chatbots</td><td>Resolve 60–80% tickets</td><td>2–6 weeks</td><td>$15k</td></tr>
+                <tr><td>Voice Assistants</td><td>Automated calls & summaries</td><td>3–8 weeks</td><td>$20k</td></tr>
+                <tr><td>Automations</td><td>Reduce manual work by 30–60%</td><td>2–5 weeks</td><td>$10k</td></tr>
+                <tr><td>Consulting</td><td>Roadmap, governance & ROI</td><td>1–3 weeks</td><td>$7.5k</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- How we work -->
+      <div class="surface" style="padding:1rem">
+        <header class="stack-1">
+          <span class="eyebrow">How we work</span>
+          <h3>Discover → Design → Deploy</h3>
+        </header>
+        <div class="timeline mt-1">
+          <div class="step">
+            <div class="bullet">1</div>
+            <div>
+              <h4>Discover</h4>
+              <p class="muted">Define success criteria, risks, and constraints. We baseline metrics and draft the architecture.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="bullet">2</div>
+            <div>
+              <h4>Design</h4>
+              <p class="muted">Prototyping with evals, guardrails, and observability. We choose stable components and model options.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="bullet">3</div>
+            <div>
+              <h4>Deploy</h4>
+              <p class="muted">Production hardening, CI/CD, monitoring, and handover. Your team owns the keys.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Case -->
+      <div class="grid grid-2">
+        <article class="surface" style="padding:1rem" id="featured-case">
+          <header class="stack-1">
+            <span class="eyebrow">Featured case</span>
+            <h3>Support Chatbot reduces handle time by 38%</h3>
+          </header>
+          <p class="muted">For a SaaS platform (200k MAU), we built an RAG-powered assistant with guardrails and human handoff. Integrated with Zendesk & CRM.</p>
+          <ul class="grid grid-3">
+            <li class="kpi"><div class="v">-38%</div><div class="muted">Handle time</div></li>
+            <li class="kpi"><div class="v">+24%</div><div class="muted">Lead conversion</div></li>
+            <li class="kpi"><div class="v">NPS +12</div><div class="muted">Customer delight</div></li>
+          </ul>
+          <a class="btn btn-ghost mt-1" href="#cases">Read full case →</a>
+        </article>
+        <!-- Testimonial carousel -->
+        <aside class="surface" style="padding:1rem">
+          <header class="stack-1"><span class="eyebrow">What clients say</span><h3>Testimonials</h3></header>
+          <div class="carousel mt-1" aria-roledescription="carousel">
+            <div class="carousel-track" id="carouselTrack">
+              <figure class="card testimonial">
+                <blockquote>“VectorMind AI is the rare partner that speaks both architecture and outcomes. We shipped in weeks, not quarters.”</blockquote>
+                <figcaption class="muted">VP Product, Fintech</figcaption>
+              </figure>
+              <figure class="card testimonial">
+                <blockquote>“Their eval-first approach gave us confidence to roll out to 1,000+ agents with measurable quality.”</blockquote>
+                <figcaption class="muted">Director of CX, SaaS</figcaption>
+              </figure>
+              <figure class="card testimonial">
+                <blockquote>“Security and governance were not afterthoughts. They built it right.”</blockquote>
+                <figcaption class="muted">CTO, Healthcare</figcaption>
+              </figure>
+            </div>
+            <div class="dots" aria-label="Slide indicators">
+              <button class="dot" aria-label="Slide 1" data-slide="0"></button>
+              <button class="dot" aria-label="Slide 2" data-slide="1"></button>
+              <button class="dot" aria-label="Slide 3" data-slide="2"></button>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="cta-band mt-2">
+        <h3>Ready to turn your AI idea into shipped software?</h3>
+        <div style="display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap">
+          <a class="btn btn-primary" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Book a Strategy Call</a>
+          <a class="btn btn-ghost" href="#contact">Get a Proposal</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== Service Details (anchor sections) =================== -->
+  <section id="svc-aisystems" class="px-section">
+    <div class="container grid grid-2">
+      <article class="surface" style="padding:1rem">
+        <header class="stack-1"><span class="eyebrow">Service</span><h2>AI Systems</h2></header>
+        <p>We build reliable retrieval & reasoning on your private data with continuous evaluations and observability.</p>
+        <h3>Process timeline</h3>
+        <ol class="stack-1 muted">
+          <li>Week 1: Data audit, risks, baseline evals</li>
+          <li>Weeks 2–4: RAG pipeline, embeddings, indexing</li>
+          <li>Weeks 4–6: Guardrails, redaction, observability</li>
+          <li>Week 6+: Hardening, runbooks, handover</li>
+        </ol>
+        <div class="sep"></div>
+        <h3>Deliverables</h3>
+        <ul class="muted">
+          <li>Architecture & runbooks</li>
+          <li>RAG pipelines with evals</li>
+          <li>Dashboards & alerts</li>
+          <li>Security review pack</li>
+        </ul>
+        <div class="sep"></div>
+        <p><strong>Timeline:</strong> 3–8 weeks &nbsp; • &nbsp; <strong>Starting at:</strong> $25k</p>
+        <details class="faq mt-1">
+          <summary>How do you measure quality?</summary>
+          <p>We implement offline/online evals, hallucination checks, and human review loops. Dashboards track regressions.</p>
+        </details>
+        <a class="btn btn-primary mt-1" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Book a Strategy Call</a>
+      </article>
+      <aside class="card feature">
+        <div class="icon">🧪</div>
+        <h3>Stack</h3>
+        <ul class="muted">
+          <li>OpenAI / Anthropic / OSS</li>
+          <li>LangChain / LlamaIndex</li>
+          <li>Postgres / Redis / Vector DBs</li>
+          <li>Weaviate / Pinecone / pgvector</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section id="svc-fullstack" class="px-section">
+    <div class="container grid grid-2">
+      <article class="surface" style="padding:1rem">
+        <header class="stack-1"><span class="eyebrow">Service</span><h2>Full-Stack Applications</h2></header>
+        <p>From secure admin portals to real-time dashboards, we deliver product-grade experiences with modern DX.</p>
+        <h3>Deliverables</h3>
+        <ul class="muted">
+          <li>Design system & UI kit</li>
+          <li>Role-based auth & audit logs</li>
+          <li>API (REST/GraphQL) + SDKs</li>
+          <li>Observability & SLOs</li>
+        </ul>
+        <p><strong>Timeline:</strong> 4–10 weeks • <strong>Starting at:</strong> $25k</p>
+        <details class="faq mt-1"><summary>Do you support on-prem?</summary><p>Yes. We can target your cloud or on-prem with containerized deployments and IaC.</p></details>
+        <a class="btn btn-primary mt-1" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Book a Strategy Call</a>
+      </article>
+      <aside class="card feature">
+        <div class="icon">🧩</div>
+        <h3>Stack</h3>
+        <ul class="muted">
+          <li>Next.js / React</li>
+          <li>Node / Python</li>
+          <li>Postgres / Prisma</li>
+          <li>tRPC / GraphQL</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section id="svc-chatbots" class="px-section">
+    <div class="container grid grid-2">
+      <article class="surface" style="padding:1rem">
+        <header class="stack-1"><span class="eyebrow">Service</span><h2>AI Chatbots</h2></header>
+        <p>Resolve 60–80% of support tickets with retrieval-augmented assistants and safe handoffs.</p>
+        <h3>Deliverables</h3>
+        <ul class="muted">
+          <li>RAG & policy guardrails</li>
+          <li>Human handoff (Zendesk/Intercom)</li>
+          <li>Analytics & CSAT tracking</li>
+          <li>Admin tools & content ops</li>
+        </ul>
+        <p><strong>Timeline:</strong> 2–6 weeks • <strong>Starting at:</strong> $15k</p>
+        <details class="faq mt-1"><summary>How do you prevent hallucinations?</summary><p>Strict retrieval, confidence gating, content filters, and escalation rules.</p></details>
+        <a class="btn btn-primary mt-1" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Book a Strategy Call</a>
+      </article>
+      <aside class="card feature">
+        <div class="icon">📈</div>
+        <h3>KPIs</h3>
+        <ul class="muted">
+          <li>Automatic resolution rate</li>
+          <li>Time to first response</li>
+          <li>CSAT/NPS uplift</li>
+          <li>Deflection savings</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section id="svc-voice" class="px-section">
+    <div class="container grid grid-2">
+      <article class="surface" style="padding:1rem">
+        <header class="stack-1"><span class="eyebrow">Service</span><h2>Voice Assistants</h2></header>
+        <p>Telephony, IVR, and real-time assistants with sub-300ms latency and compliance controls.</p>
+        <h3>Deliverables</h3>
+        <ul class="muted"><li>Realtime pipelines</li><li>Call summaries & QA</li><li>Diarization & redaction</li><li>PCI-safe flows</li></ul>
+        <p><strong>Timeline:</strong> 3–8 weeks • <strong>Starting at:</strong> $20k</p>
+        <a class="btn btn-primary mt-1" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Book a Strategy Call</a>
+      </article>
+      <aside class="card feature">
+        <div class="icon">☎️</div>
+        <h3>Integrations</h3>
+        <p class="muted">Twilio, PSTN, SIP, Teams/Zoom Phone.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="svc-automation" class="px-section">
+    <div class="container grid grid-2">
+      <article class="surface" style="padding:1rem">
+        <header class="stack-1"><span class="eyebrow">Service</span><h2>Workflow Automations</h2></header>
+        <p>Automate repetitive work with robust error handling and human-in-the-loop checkpoints.</p>
+        <h3>Deliverables</h3>
+        <ul class="muted"><li>System maps</li><li>Queues & retries</li><li>Supervisor dashboards</li><li>Training & docs</li></ul>
+        <p><strong>Timeline:</strong> 2–5 weeks • <strong>Starting at:</strong> $10k</p>
+        <a class="btn btn-primary mt-1" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Book a Strategy Call</a>
+      </article>
+      <aside class="card feature">
+        <div class="icon">🔁</div>
+        <h3>Platforms</h3>
+        <p class="muted">Zapier, Make, Airflow, custom workers.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="svc-consulting" class="px-section">
+    <div class="container grid grid-2">
+      <article class="surface" style="padding:1rem">
+        <header class="stack-1"><span class="eyebrow">Service</span><h2>AI Consulting</h2></header>
+        <p>Roadmaps, audits, and governance that align AI with your risk posture and ROI.</p>
+        <h3>Deliverables</h3>
+        <ul class="muted"><li>Use-case prioritization</li><li>Architecture blueprint</li><li>Risk & governance matrix</li><li>Training & enablement</li></ul>
+        <p><strong>Timeline:</strong> 1–3 weeks • <strong>Starting at:</strong> $7.5k</p>
+        <a class="btn btn-primary mt-1" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Book a Strategy Call</a>
+      </article>
+      <aside class="card feature">
+        <div class="icon">🛡️</div>
+        <h3>Governance</h3>
+        <p class="muted">Policies, model cards, data retention, DPIAs.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- =================== Case Studies =================== -->
+  <section id="cases" class="px-section">
+    <div class="container stack-2">
+      <header class="center max-w-lg">
+        <span class="eyebrow">Proof of impact</span>
+        <h2>Case Studies</h2>
+        <p>Fictionalized but plausible engagements showing measurable lift.</p>
+      </header>
+      <div class="grid grid-3">
+        <article class="card" style="padding:1rem">
+          <h3>SaaS Support Assistant</h3>
+          <p class="muted">RAG + guardrails integrated with Zendesk. Analytics dashboard & evals.</p>
+          <ul class="proof"><li class="chip">-38% handle time</li><li class="chip">+12 NPS</li><li class="chip">60–80% auto-resolution</li></ul>
+          <div class="sep"></div>
+          <p class="muted"><strong>Stack:</strong> OpenAI, LangChain, pgvector, Next.js</p>
+          <a class="btn btn-ghost" href="#featured-case">Read more →</a>
+        </article>
+        <article class="card" style="padding:1rem">
+          <h3>Field Ops Voice Agent</h3>
+          <p class="muted">Realtime IVR for scheduling & status. Sub-300ms latency, PCI-safe flows.</p>
+          <ul class="proof"><li class="chip">-25% missed calls</li><li class="chip">+19% first-call resolution</li><li class="chip">QA automation</li></ul>
+          <div class="sep"></div>
+          <p class="muted"><strong>Stack:</strong> Realtime API, Twilio, Redis</p>
+          <a class="btn btn-ghost" href="#svc-voice">Read more →</a>
+        </article>
+        <article class="card" style="padding:1rem">
+          <h3>Finance KYC Automation</h3>
+          <p class="muted">Document parsing & risk flags with human review queues.</p>
+          <ul class="proof"><li class="chip">-62% manual effort</li><li class="chip">+28% throughput</li><li class="chip">Audit-ready</li></ul>
+          <div class="sep"></div>
+          <p class="muted"><strong>Stack:</strong> Python, OCR, Postgres, Next.js</p>
+          <a class="btn btn-ghost" href="#svc-automation">Read more →</a>
+        </article>
+      </div>
+      <div class="cta-band">
+        <p class="muted">Want a case study in your domain?</p>
+        <a class="btn btn-primary" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Book a Strategy Call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== Pricing =================== -->
+  <section id="pricing" class="px-section">
+    <div class="container stack-2">
+      <header class="center max-w-lg">
+        <span class="eyebrow">Pricing</span>
+        <h2>Value-anchored plans</h2>
+        <p>Transparent, ROI-first. Start small; scale as outcomes prove out.</p>
+      </header>
+      <div class="grid grid-3">
+        <article class="surface" style="padding:1rem">
+          <h3>Discovery Sprint</h3>
+          <p class="muted">Feasibility, roadmap, prototype, and governance recommendations.</p>
+          <h1 class="accent">$7.5k</h1>
+          <ul class="muted">
+            <li>• Workshop & use-case scoring</li>
+            <li>• Architecture outline</li>
+            <li>• Risk & compliance review</li>
+            <li>• Prototype + next steps</li>
+          </ul>
+          <a class="btn btn-primary" href="https://calendly.com/vectormind/intro" target="_blank">Start a Sprint</a>
+        </article>
+        <article class="surface" style="padding:1rem; outline: 2px solid rgba(90,124,255,.35);">
+          <h3>MVP Build</h3>
+          <p class="muted">Ship a production-ready vertical slice with evals & observability.</p>
+          <h1 class="accent">from $25k</h1>
+          <ul class="muted">
+            <li>• RAG/chatbot/automation MVP</li>
+            <li>• CI/CD + monitoring</li>
+            <li>• Runbooks & training</li>
+            <li>• Handover & support</li>
+          </ul>
+          <a class="btn btn-primary" href="https://calendly.com/vectormind/intro" target="_blank">Scope my MVP</a>
+        </article>
+        <article class="surface" style="padding:1rem">
+          <h3>Scale / Retainer</h3>
+          <p class="muted">Ongoing iteration, new features, and reliability upgrades.</p>
+          <h1 class="accent">$6k+/mo</h1>
+          <ul class="muted">
+            <li>• Backlog & roadmap</li>
+            <li>• Evals & regression guards</li>
+            <li>• Security patches</li>
+            <li>• On-call engineering</li>
+          </ul>
+          <a class="btn btn-primary" href="#contact">Get a Proposal</a>
+        </article>
+      </div>
+
+      <!-- Pricing FAQs -->
+      <div class="grid grid-2">
+        <div class="stack-1">
+          <h3>FAQs</h3>
+          <details class="faq"><summary>Can you work with our existing vendors?</summary><p>Yes—we often integrate with security, legal, and data teams plus external agencies.</p></details>
+          <details class="faq"><summary>How do you handle data privacy?</summary><p>Data stays in your cloud when possible; we minimize PII/PHI and apply redaction & retention policies.</p></details>
+          <details class="faq"><summary>What if we don’t have labeled data?</summary><p>We use targeted eval sets and human-in-the-loop review to bootstrap quality safely.</p></details>
+          <details class="faq"><summary>Do you offer fixed bids?</summary><p>Yes, for well-scoped sprints and MVPs. Retainers are flexible for evolving roadmaps.</p></details>
+          <details class="faq"><summary>What’s your typical lead time?</summary><p>We can usually start within 1–2 weeks after the sprint kickoff.</p></details>
+        </div>
+        <div class="stack-1">
+          <details class="faq"><summary>Which LLMs do you support?</summary><p>OpenAI, Anthropic, and vetted OSS models—selected per requirements, cost, and risk.</p></details>
+          <details class="faq"><summary>Can you deploy on-prem?</summary><p>Yes—containerized deployments and IaC for your environment.</p></details>
+          <details class="faq"><summary>How do you measure ROI?</summary><p>Joint KPI baselines, dashboards, and regular reviews. We ship improvements, not just features.</p></details>
+          <details class="faq"><summary>Do you provide training?</summary><p>Yes—enablement sessions and documentation included in all plans.</p></details>
+          <details class="faq"><summary>What about accessibility?</summary><p>WCAG 2.2 AA by default, including keyboard support and semantic HTML.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== About =================== -->
+  <section id="about" class="px-section">
+    <div class="container grid grid-2">
+      <article class="surface" style="padding:1rem">
+        <header class="stack-1"><span class="eyebrow">About</span><h2>We’re engineers who ship outcomes</h2></header>
+        <p>VectorMind AI blends product thinking with solid engineering to deliver reliable AI in production.</p>
+        <ul class="proof">
+          <li class="chip">Mission-driven</li>
+          <li class="chip">Security-first</li>
+          <li class="chip">Design-led</li>
+        </ul>
+      </article>
+      <aside class="card" style="padding:1rem">
+        <h3>Leadership</h3>
+        <div class="stack-1">
+          <div class="surface" style="padding:.8rem">
+            <strong>Alex Rivera</strong> — Principal Architect
+            <p class="muted">LLM systems, retrieval, governance</p>
+            <div class="proof"><span class="badge">OpenAI</span><span class="badge">Azure</span><span class="badge">Postgres</span></div>
+          </div>
+          <div class="surface" style="padding:.8rem">
+            <strong>Maya Chen</strong> — Head of Product
+            <p class="muted">User research, accessibility, DX</p>
+            <div class="proof"><span class="badge">Next.js</span><span class="badge">WCAG</span><span class="badge">Figma</span></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- =================== Resources / Blog =================== -->
+  <section id="resources" class="px-section">
+    <div class="container stack-2">
+      <header class="center max-w-lg">
+        <span class="eyebrow">Resources</span>
+        <h2>Guides & architecture notes</h2>
+        <p>Short, practical reads for teams shipping AI.</p>
+      </header>
+      <div class="grid grid-2">
+        <article class="card" style="padding:1rem">
+          <h3>Guardrails that actually work</h3>
+          <p class="muted">A pragmatic approach to policy, content filtering, and escalation.</p>
+          <a class="btn btn-ghost" href="#resources">Read →</a>
+        </article>
+        <article class="card" style="padding:1rem">
+          <h3>Operationalizing evals</h3>
+          <p class="muted">From ad-hoc checks to continuous evaluation pipelines.</p>
+          <a class="btn btn-ghost" href="#resources">Read →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== Contact =================== -->
+  <section id="contact" class="px-section">
+    <div class="container grid grid-2">
+      <form class="surface" style="padding:1rem" id="contactForm" novalidate>
+        <header class="stack-1"><span class="eyebrow">Contact</span><h2>Tell us about your project</h2></header>
+        <div class="row">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" placeholder="Your name" required />
+          </div>
+          <div>
+            <label for="email">Work email</label>
+            <input id="email" name="email" type="email" placeholder="you@company.com" required inputmode="email" />
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="company">Company</label>
+            <input id="company" name="company" placeholder="Company Inc." />
+          </div>
+          <div>
+            <label for="budget">Budget range</label>
+            <select id="budget" name="budget">
+              <option value="">Select</option>
+              <option>$7.5k – $15k</option>
+              <option>$15k – $40k</option>
+              <option>$40k – $100k</option>
+              <option>$100k+</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label for="usecase">Use-case</label>
+          <textarea id="usecase" name="usecase" rows="4" placeholder="What problem are we solving? Success looks like…"></textarea>
+        </div>
+        <!-- Honeypot -->
+        <input type="checkbox" id="hp" name="hp" class="sr-only" tabindex="-1" autocomplete="off" />
+        <p class="help">Prefer to book directly? <a href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Calendly link</a>.</p>
+        <div style="display:flex; gap:.6rem; align-items:center">
+          <button class="btn btn-primary" type="submit">Get a Proposal</button>
+          <span id="formStatus" class="note" role="status" aria-live="polite"></span>
+        </div>
+      </form>
+
+      <aside class="surface" style="padding:1rem">
+        <h3>Book a Strategy Call</h3>
+        <p class="muted">Fastest path to clarity. 20 minutes to align on scope, risks, and ROI.</p>
+        <a class="btn btn-primary" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Open Calendly</a>
+        <div class="sep"></div>
+        <p class="muted"><strong>Location:</strong> Ottawa, Canada</p>
+        <p class="muted"><strong>Email:</strong> hello@vectormind.ai</p>
+        <p class="muted"><strong>Phone:</strong> +1 (613) 555-0199</p>
+        <div class="sep"></div>
+        <h4>Security & Compliance</h4>
+        <ul class="muted">
+          <li>Principle of least privilege</li>
+          <li>Data minimization; retention controls</li>
