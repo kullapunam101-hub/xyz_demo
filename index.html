@@ -1,3 +1,4 @@
+```html
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -906,3 +907,207 @@
         <ul class="muted">
           <li>Principle of least privilege</li>
           <li>Data minimization; retention controls</li>
+          <li>Accessible by design (WCAG 2.2 AA)</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- =================== Legal =================== -->
+  <section id="legal" class="px-section">
+    <div class="container grid grid-2">
+      <article class="surface" style="padding:1rem">
+        <h3>Privacy</h3>
+        <p class="muted">We collect minimal analytics. Submitted forms are used to respond to your inquiry. We do not sell personal data.</p>
+      </article>
+      <article class="surface" style="padding:1rem">
+        <h3>Terms</h3>
+        <p class="muted">All content © VectorMind AI. Engagements are governed by a mutual MSA and SOW.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- =================== Footer =================== -->
+  <footer>
+    <div class="container">
+      <div class="grid grid-3">
+        <div>
+          <div class="brand"><span class="logo">V</span><h4>VectorMind <span class="accent">AI</span></h4></div>
+          <p class="muted">Enterprise AI, engineered for outcomes.</p>
+        </div>
+        <div>
+          <h4>Navigate</h4>
+          <ul class="stack-1">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#cases">Case Studies</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#resources">Resources</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p class="muted">hello@vectormind.ai<br/>+1 (613) 555-0199<br/>Ottawa, Canada</p>
+          <div class="proof"><span class="badge">Sitemap</span><span class="badge">Robots</span></div>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:1rem">© <span id="year"></span> VectorMind AI. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- =================== JSON-LD schema.org =================== -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"VectorMind AI",
+    "url":"https://vectormind.ai",
+    "logo":"https://vectormind.ai/logo.png",
+    "address":{"@type":"PostalAddress","addressLocality":"Ottawa","addressCountry":"CA"},
+    "contactPoint":[{"@type":"ContactPoint","email":"hello@vectormind.ai","telephone":"+1-613-555-0199","contactType":"sales"}],
+    "sameAs":[]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "itemListElement":[
+      {"@type":"Service","name":"AI Systems","serviceType":"AI Systems","provider":{"@type":"Organization","name":"VectorMind AI"}},
+      {"@type":"Service","name":"Full-Stack Applications","serviceType":"Full-Stack Applications","provider":{"@type":"Organization","name":"VectorMind AI"}},
+      {"@type":"Service","name":"AI Chatbots","serviceType":"AI Chatbots","provider":{"@type":"Organization","name":"VectorMind AI"}},
+      {"@type":"Service","name":"Voice Assistants","serviceType":"Voice Assistants","provider":{"@type":"Organization","name":"VectorMind AI"}},
+      {"@type":"Service","name":"Workflow Automations","serviceType":"Workflow Automations","provider":{"@type":"Organization","name":"VectorMind AI"}},
+      {"@type":"Service","name":"AI Consulting","serviceType":"AI Consulting","provider":{"@type":"Organization","name":"VectorMind AI"}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Can you work with our existing vendors?","acceptedAnswer":{"@type":"Answer","text":"Yes—we often integrate with security, legal, and data teams plus external agencies."}},
+      {"@type":"Question","name":"How do you handle data privacy?","acceptedAnswer":{"@type":"Answer","text":"Data stays in your cloud when possible; we minimize PII/PHI and apply redaction & retention policies."}},
+      {"@type":"Question","name":"What if we don’t have labeled data?","acceptedAnswer":{"@type":"Answer","text":"We use targeted eval sets and human-in-the-loop review to bootstrap quality safely."}},
+      {"@type":"Question","name":"Do you offer fixed bids?","acceptedAnswer":{"@type":"Answer","text":"Yes, for well-scoped sprints and MVPs. Retainers are flexible for evolving roadmaps."}},
+      {"@type":"Question","name":"What’s your typical lead time?","acceptedAnswer":{"@type":"Answer","text":"We can usually start within 1–2 weeks after the sprint kickoff."}},
+      {"@type":"Question","name":"Which LLMs do you support?","acceptedAnswer":{"@type":"Answer","text":"OpenAI, Anthropic, and vetted OSS models—selected per requirements, cost, and risk."}},
+      {"@type":"Question","name":"Can you deploy on-prem?","acceptedAnswer":{"@type":"Answer","text":"Yes—containerized deployments and IaC for your environment."}},
+      {"@type":"Question","name":"How do you measure ROI?","acceptedAnswer":{"@type":"Answer","text":"Joint KPI baselines, dashboards, and regular reviews."}},
+      {"@type":"Question","name":"Do you provide training?","acceptedAnswer":{"@type":"Answer","text":"Yes—enablement sessions and documentation included in all plans."}},
+      {"@type":"Question","name":"What about accessibility?","acceptedAnswer":{"@type":"Answer","text":"WCAG 2.2 AA by default, including keyboard support and semantic HTML."}}
+    ]
+  }
+  </script>
+
+  <!-- =================== Minimal JS =================== -->
+  <script>
+    // Accessibility-friendly smooth scroll
+    (function(){
+      function smoothScroll(e){
+        const a = e.target.closest('a[href^="#"]');
+        if(!a) return;
+        const id = a.getAttribute('href').slice(1);
+        if(!id) return;
+        const el = document.getElementById(id);
+        if(el){
+          e.preventDefault();
+          el.scrollIntoView({behavior:'smooth', block:'start'});
+          // Set focus for keyboard users
+          setTimeout(()=>{ el.setAttribute('tabindex','-1'); el.focus({preventScroll:true}); }, 400);
+        }
+      }
+      document.addEventListener('click', smoothScroll, false);
+    })();
+
+    // Mobile drawer
+    (function(){
+      const btn = document.getElementById('menuBtn');
+      const drawer = document.getElementById('drawer');
+      if(!btn || !drawer) return;
+      btn.addEventListener('click', ()=>{
+        const open = drawer.style.display !== 'none' && drawer.style.display !== '';
+        drawer.style.display = open ? 'none':'block';
+        btn.setAttribute('aria-expanded', String(!open));
+      });
+    })();
+
+    // Carousel (testimonials)
+    (function(){
+      const track = document.getElementById('carouselTrack');
+      const dots = Array.from(document.querySelectorAll('.dot'));
+      let index = 0;
+      function go(i){
+        index = (i + dots.length) % dots.length;
+        const offset = index * (track.children[0].getBoundingClientRect().width + 16); // card width + gap
+        track.style.transform = `translateX(-${offset}px)`;
+        dots.forEach((d,j)=>d.classList.toggle('active', j===index));
+      }
+      dots.forEach(d=>d.addEventListener('click', ()=>go(Number(d.dataset.slide))));
+      go(0);
+      let timer = setInterval(()=>go(index+1), 5200);
+      track.addEventListener('pointerdown', ()=>{ clearInterval(timer); });
+    })();
+
+    // Consent banner + GA4 stub
+    (function(){
+      const key = 'vm-consent';
+      const el = document.getElementById('consent');
+      const accepted = localStorage.getItem(key);
+      if(!accepted){ el.style.display = 'block'; }
+      const accept = document.getElementById('consent-accept');
+      const decline = document.getElementById('consent-decline');
+      accept?.addEventListener('click', ()=>{ localStorage.setItem(key,'yes'); el.style.display='none'; enableAnalytics(); });
+      decline?.addEventListener('click', ()=>{ localStorage.setItem(key,'no'); el.style.display='none'; });
+      if(accepted === 'yes'){ enableAnalytics(); }
+
+      function enableAnalytics(){
+        // GA4 minimal loader (replace G-XXXXXXX)
+        const id = 'G-XXXXXXX';
+        if(!id || id.includes('X')) return; // skip if not configured
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function(){ dataLayer.push(arguments); };
+        gtag('js', new Date()); gtag('config', id);
+        const s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+        document.head.appendChild(s);
+      }
+    })();
+
+    // Contact form: basic validation, honeypot, local "rate-limit"
+    (function(){
+      const form = document.getElementById('contactForm');
+      if(!form) return;
+      const status = document.getElementById('formStatus');
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        if(document.getElementById('hp').checked){ status.textContent = 'Spam detected.'; return; }
+        const last = Number(localStorage.getItem('vm-last-submit')||0);
+        if(Date.now() - last < 60_000){ status.textContent = 'Please wait a minute before submitting again.'; return; }
+        const data = Object.fromEntries(new FormData(form).entries());
+        if(!data.name || !data.email){ status.textContent = 'Please fill required fields.'; return; }
+        status.textContent = 'Sending…';
+        // Stub: replace with server action / API endpoint
+        await new Promise(r=>setTimeout(r, 800));
+        localStorage.setItem('vm-last-submit', String(Date.now()));
+        status.textContent = 'Thanks! We’ll reach out within 1 business day.';
+        form.reset();
+      });
+    })();
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- =================== Deployment Notes ===================
+    • Deploy to Vercel. Add sitemap.xml & robots.txt at project root.
+    • Set security headers at the edge (example):
+        Content-Security-Policy: script-src 'self' https://www.googletagmanager.com; object-src 'none'; base-uri 'self';
+        Referrer-Policy: strict-origin-when-cross-origin
+        X-Content-Type-Options: nosniff
+        Permissions-Policy: camera=(), microphone=()
+    • Replace GA4 ID above to enable analytics after consent.
+    • Swap SVG/PNG placeholders for your brand assets.
+  ============================================================ -->
+</body>
+</html>
+```
