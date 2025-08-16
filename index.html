@@ -1,1113 +1,273 @@
-```html
-<!doctype html>
-<html lang="en" dir="ltr">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>VectorMind AI — Enterprise AI, engineered for outcomes</title>
-  <meta name="description" content="VectorMind AI designs and engineers production-ready AI systems, apps, and automations that compound your team's leverage. Book a strategy call." />
-  <link rel="canonical" href="https://vectormind.ai/" />
-  <meta name="theme-color" content="#0f1115" />
-  <meta name="color-scheme" content="dark light" />
-  <!-- Open Graph -->
-  <meta property="og:title" content="VectorMind AI — Enterprise AI, engineered for outcomes" />
-  <meta property="og:description" content="Deploy AI that ships outcomes—fast. RAG systems, full-stack apps, chatbots, voice assistants, and workflow automations." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Givana — 100% Soy Wax Candles | Luxury & Personalized Gifts</title>
+  <meta name="description" content="Givana crafts 100% soy wax candles—scented, luxury, and personalized gifts. Based in Ottawa. Contact: kullapunam101@gmail.com" />
+  <meta name="author" content="Givana" />
+  <meta property="og:title" content="Givana — 100% Soy Wax Candles" />
+  <meta property="og:description" content="Luxury scented candles and personalized gifts. 100% soy. Ottawa." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://vectormind.ai/" />
-  <meta property="og:image" content="https://vectormind.ai/og-card.png" />
-  <!-- Twitter -->
+  <meta property="og:image" content="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="VectorMind AI — Enterprise AI, engineered for outcomes" />
-  <meta name="twitter:description" content="Deploy AI that ships outcomes—fast. RAG systems, full-stack apps, chatbots, voice assistants, and workflow automations." />
-  <meta name="twitter:image" content="https://vectormind.ai/og-card.png" />
-  <!-- PWA icons (placeholders) -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect width='64' height='64' rx='12' fill='%230f1115'/%3E%3Cpath d='M18 44L32 12l14 32' stroke='%238ea0ff' stroke-width='4' fill='none'/%3E%3C/svg%3E" />
-  <style>
-    /* =========================================
-       VectorMind AI – Inline Design System
-       ========================================= */
-
-    :root{
-      --bg:#0f1115;            /* deep charcoal */
-      --elev:#12141c;          /* panel bg */
-      --muted:#1a1f2b;         /* card bg */
-      --line:rgba(255,255,255,.08);
-      --text:#e9eaf2;          /* primary text */
-      --subtle:#b6bdcc;        /* secondary */
-      --ok:#22c55e;
-      --warn:#f59e0b;
-      --danger:#ef4444;
-      --accentA:#5a7cff;       /* electric blue */
-      --accentB:#8b5cf6;       /* violet */
-      --shadow:0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
-      --radius-xl:1.25rem;     /* 20px */
-      --radius-lg:.875rem;     /* 14px */
-      --radius-md:.625rem;     /* 10px */
-      --pad: clamp(16px, 2vw, 28px);
-      --container: 1200px;
-      --trans: 240ms cubic-bezier(.2,.8,.2,1);
-      --focus: 2px solid rgba(138, 92, 246, .8);
-      --glass: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-    }
-
-    @media (prefers-color-scheme: light) {
-      :root{
-        --bg:#f7f7fb;
-        --elev:#ffffff;
-        --muted:#f4f5f9;
-        --line:rgba(16,16,24,.08);
-        --text:#101423;
-        --subtle:#424a5d;
-        --shadow:0 10px 30px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.6);
-        --glass: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.7));
-      }
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
-      background:
-        radial-gradient(1200px 600px at 20% -10%, rgba(90,124,255,.15), transparent 60%),
-        radial-gradient(1000px 500px at 120% 0%, rgba(139,92,246,.18), transparent 55%),
-        var(--bg);
-      line-height:1.55;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-    h1,h2,h3,h4{font-family: "Inter Tight", Inter, ui-sans-serif, system-ui; margin:0 0 .6rem}
-    h1{font-weight:800; letter-spacing:-.02em; font-size:clamp(2.2rem, 4vw + .5rem, 3.4rem)}
-    h2{font-weight:800; letter-spacing:-.02em; font-size:clamp(1.6rem, 2vw + .6rem, 2.4rem)}
-    h3{font-weight:700; font-size:clamp(1.1rem, 1vw + .7rem, 1.5rem)}
-    p{margin:.4rem 0 1rem; color:var(--subtle)}
-    a{color:inherit; text-decoration:none}
-    a[href]:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{outline:var(--focus); outline-offset:2px; border-radius:10px}
-    img{max-width:100%; height:auto; display:block}
-
-    .container{max-width:var(--container); margin-inline:auto; padding-inline:var(--pad)}
-    .surface{background:var(--elev); border:1px solid var(--line); border-radius:var(--radius-xl); box-shadow: var(--shadow)}
-    .card{background:var(--muted); border:1px solid var(--line); border-radius:var(--radius-lg); box-shadow: var(--shadow)}
-    .chip{display:inline-flex; gap:.5rem; align-items:center; padding:.45rem .75rem; background:var(--muted); border:1px solid var(--line); border-radius:999px; font-size:.82rem; color:var(--subtle)}
-    .accent{background: linear-gradient(90deg, var(--accentA), var(--accentB)); -webkit-background-clip:text; background-clip:text; color:transparent}
-    .btn{display:inline-flex; align-items:center; justify-content:center; gap:.6rem; padding:.9rem 1.1rem; border-radius:.9rem; border:1px solid var(--line); transition: transform var(--trans), box-shadow var(--trans), background var(--trans); font-weight:700; letter-spacing:.01em}
-    .btn-primary{color:#fff; background: linear-gradient(90deg, var(--accentA), var(--accentB)); box-shadow:0 8px 20px rgba(92, 108, 255, .35)}
-    .btn-primary:hover{transform:translateY(-2px)}
-    .btn-ghost{background:transparent}
-    .btn-ghost:hover{background:rgba(255,255,255,.05)}
-    .btn-outline{background:transparent; border:1px solid rgba(255,255,255,.18)}
-    .eyebrow{display:inline-flex; align-items:center; gap:.6rem; font-weight:650; font-size:.85rem; letter-spacing:.08em; text-transform:uppercase; color:var(--subtle)}
-    .grid{display:grid; gap:1.2rem}
-    .grid-2{grid-template-columns: repeat(2, minmax(0,1fr))}
-    .grid-3{grid-template-columns: repeat(3, minmax(0,1fr))}
-    .grid-4{grid-template-columns: repeat(4, minmax(0,1fr))}
-    @media (max-width: 960px){ .grid-2,.grid-3,.grid-4{grid-template-columns: 1fr} }
-    .kbd{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; padding:.2rem .5rem; border-radius:.5rem; background:var(--muted); border:1px solid var(--line); font-size:.86rem; color:var(--subtle)}
-    .muted{color:var(--subtle)}
-    .shadow-soft{box-shadow: var(--shadow)}
-    .sep{height:1px; background:var(--line); margin:1.2rem 0}
-    .badge{padding:.18rem .5rem; border-radius:6px; background:rgba(255,255,255,.06); border:1px solid var(--line); font-size:.78rem; color:var(--subtle)}
-    .sr-only{position:absolute!important; inset:0!important; width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(1px, 1px, 1px, 1px)!important;white-space:nowrap!important;border:0!important}
-
-    /* Header */
-    header.site{
-      position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(10px);
-      background:linear-gradient(180deg, rgba(15,17,21,.75), rgba(15,17,21,.35));
-      border-bottom:1px solid var(--line)
-    }
-    .nav{display:flex; align-items:center; justify-content:space-between; gap:1rem; min-height:64px}
-    .brand{display:flex; gap:.8rem; align-items:center}
-    .logo{
-      width:34px;height:34px;border-radius:.6rem;background: radial-gradient(100% 100% at 50% 0%, rgba(255,255,255,.3), rgba(255,255,255,.08)),
-      linear-gradient(135deg, var(--accentA), var(--accentB)); display:grid; place-items:center; color:#fff; font-weight:900
-    }
-    .brand h4{font-weight:800; letter-spacing:.01em}
-    .nav a{color:var(--subtle)}
-    .nav a.active,.nav a:hover{color:var(--text)}
-    .nav-links{display:flex; align-items:center; gap:1rem}
-    .nav-cta{display:flex; align-items:center; gap:.6rem}
-    .menu-btn{display:none}
-    @media (max-width: 980px){ .menu-btn{display:grid}; .nav-links{display:none} }
-
-    /* Hero */
-    .hero{
-      position:relative; padding: clamp(36px, 8vw, 96px) 0;
-      isolation:isolate;
-    }
-    .hero .bgfx{
-      position:absolute; inset:-4px; z-index:-1;
-      background:
-        radial-gradient(600px 240px at 20% 15%, rgba(90,124,255,.18), transparent 60%),
-        radial-gradient(600px 240px at 80% 5%, rgba(139,92,246,.20), transparent 60%);
-      mask-image: linear-gradient(180deg, rgba(0,0,0,1), rgba(0,0,0,.3));
-      pointer-events:none
-    }
-    .hero .wrap{display:grid; gap:2rem; grid-template-columns: 1.2fr .8fr}
-    @media (max-width: 980px){ .hero .wrap{grid-template-columns: 1fr} }
-    .kpis{display:grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap:1rem}
-    @media (max-width: 640px){ .kpis{grid-template-columns: 1fr 1fr} }
-    .kpi{padding:1rem;border-radius:var(--radius-lg); background:var(--muted); border:1px solid var(--line); text-align:center}
-    .kpi .v{font-weight:900; font-size:clamp(1.2rem, 2vw + .6rem, 2rem); background:linear-gradient(90deg,var(--accentA),var(--accentB)); -webkit-background-clip:text; color:transparent}
-
-    /* Proof bar + marquee */
-    .proof{display:flex; gap:.6rem; flex-wrap:wrap}
-    .marquee{
-      display:flex; overflow:auto; gap:1rem; padding: .6rem 0 .2rem; scroll-snap-type:x mandatory
-    }
-    .marquee .logo-chip{
-      scroll-snap-align:start; white-space:nowrap; padding:.6rem .8rem; border-radius:999px; border:1px dashed var(--line); color:var(--subtle); display:inline-flex; align-items:center; gap:.6rem
-    }
-
-    /* Cards & grids */
-    .feature{padding:1rem; display:grid; gap:.6rem}
-    .feature .icon{width:40px;height:40px;border-radius:.8rem; display:grid; place-items:center; background:linear-gradient(135deg, rgba(90,124,255,.22), rgba(139,92,246,.18)); border:1px solid var(--line)}
-    .table{width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border-radius:var(--radius-lg); border:1px solid var(--line)}
-    .table th,.table td{padding:.9rem .9rem; text-align:left; border-bottom:1px solid var(--line)}
-    .table th{color:var(--subtle); font-weight:700; background:linear-gradient(180deg, rgba(255,255,255,.03), transparent)}
-    .table tr:last-child td{border-bottom:0}
-
-    /* Timeline */
-    .timeline{display:grid; gap:1rem}
-    .step{display:grid; grid-template-columns: 36px 1fr; gap:1rem; align-items:start}
-    .bullet{width:36px;height:36px;border-radius:10px; background:linear-gradient(135deg,var(--accentA),var(--accentB)); display:grid; place-items:center; color:#fff; font-weight:800}
-
-    /* Carousel */
-    .carousel{position:relative; overflow:hidden}
-    .carousel-track{display:flex; gap:1rem; transition: transform var(--trans)}
-    .testimonial{min-width: clamp(280px, 45vw, 360px); padding:1rem}
-    .dots{display:flex; gap:.5rem; justify-content:center; padding-top:.6rem}
-    .dot{width:8px;height:8px;border-radius:999px; background:rgba(255,255,255,.25)}
-    .dot.active{background:linear-gradient(90deg,var(--accentA),var(--accentB))}
-
-    /* Accordion */
-    details.faq{background:var(--muted); border:1px solid var(--line); border-radius:var(--radius-lg); padding: .2rem .9rem}
-    details.faq + details.faq{margin-top:.6rem}
-    details.faq[open]{box-shadow:var(--shadow)}
-    details.faq summary{cursor:pointer; padding:.9rem 0; list-style:none; color:var(--text); font-weight:700}
-    details.faq summary::-webkit-details-marker{display:none}
-
-    /* Forms */
-    form .row{display:grid; gap:.8rem; grid-template-columns: repeat(2, minmax(0,1fr))}
-    @media (max-width: 760px){ form .row{grid-template-columns: 1fr} }
-    label{font-weight:600; color:var(--subtle); font-size:.92rem}
-    input, textarea, select{
-      width:100%; padding:.85rem .9rem; color:var(--text); background:var(--elev); border-radius:.7rem; border:1px solid var(--line)
-    }
-    input::placeholder, textarea::placeholder{color:rgba(190,196,214,.6)}
-    .help{font-size:.82rem; color:var(--subtle)}
-    .note{font-size:.86rem; color:var(--subtle)}
-
-    /* Footer */
-    footer{border-top:1px solid var(--line); margin-top:3rem; padding:2rem 0}
-
-    /* Utility */
-    .max-w-sm{max-width:560px}
-    .max-w-md{max-width:720px}
-    .max-w-lg{max-width:920px}
-    .center{text-align:center}
-    .stack-2{display:grid; gap:2rem}
-    .stack-1{display:grid; gap:1rem}
-    .mt-1{margin-top:1rem}.mt-2{margin-top:2rem}.mt-3{margin-top:3rem}
-    .mb-1{margin-bottom:1rem}.mb-2{margin-bottom:2rem}.mb-3{margin-bottom:3rem}
-    .px-section{padding: clamp(28px, 6vw, 72px) 0}
-    .cta-band{display:grid; gap:1rem; align-items:center; text-align:center; padding:1.2rem; background:var(--glass); border:1px solid var(--line); border-radius:var(--radius-xl)}
-    .pill{border-radius:999px}
-    .ghost{opacity:.65}
-    .vis-ch{contain:content}
-
-    @media (prefers-reduced-motion: reduce){
-      *{scroll-behavior:auto!important; animation: none!important; transition: none!important}
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🕯️</text></svg>">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Givana",
+    "brand": {"@type": "Brand", "name": "Givana"},
+    "founder": {"@type": "Person", "name": "Punam Kulla"},
+    "email": "mailto:kullapunam101@gmail.com",
+    "address": {"@type": "PostalAddress", "addressLocality": "Ottawa", "addressCountry": "CA"},
+    "sameAs": [],
+    "url": "https://example.com/"
+  }
+  </script>
 </head>
 <body>
-  <!-- =================== Consent Banner (stub) =================== -->
-  <div id="consent" role="dialog" aria-live="polite" aria-label="Cookie consent" style="position:fixed; inset:auto 0 0 0; display:none; z-index:60">
-    <div class="container" style="padding:.8rem">
-      <div class="surface" style="display:flex; gap:1rem; align-items:center; justify-content:space-between; padding: .9rem 1rem">
-        <div>
-          <strong>We use minimal analytics.</strong>
-          <p class="muted" style="margin:.2rem 0 0">Help us improve your experience. Toggle analytics below.</p>
-        </div>
-        <div style="display:flex; gap:.5rem; align-items:center">
-          <button class="btn btn-ghost pill" id="consent-decline" aria-label="Decline analytics">Decline</button>
-          <button class="btn btn-primary pill" id="consent-accept" aria-label="Accept analytics">Accept</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- =================== Header =================== -->
-  <header class="site">
-    <div class="container nav" role="navigation" aria-label="Primary">
-      <a class="brand" href="#home" aria-label="VectorMind AI home">
-        <span class="logo" aria-hidden="true">V</span>
-        <h4>VectorMind <span class="accent">AI</span></h4>
-        <span class="chip" title="Ottawa, Canada" aria-label="Location">Ottawa, Canada</span>
-      </a>
-      <nav class="nav-links" aria-label="Main">
-        <a href="#services" class="ghost">Services</a>
-        <a href="#cases" class="ghost">Case Studies</a>
-        <a href="#pricing" class="ghost">Pricing</a>
-        <a href="#about" class="ghost">About</a>
-        <a href="#resources" class="ghost">Resources</a>
-        <a href="#contact" class="ghost">Contact</a>
-      </nav>
-      <div class="nav-cta">
-        <a class="btn btn-ghost pill" href="#pricing">Get a Proposal</a>
-        <a class="btn btn-primary pill" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener" aria-label="Book a Strategy Call (opens Calendly)">Book a Strategy Call</a>
-        <button class="menu-btn btn btn-outline pill" aria-expanded="false" aria-controls="drawer" id="menuBtn">
-          Menu
-        </button>
-      </div>
-    </div>
-    <!-- Mobile drawer -->
-    <div id="drawer" class="container" style="display:none">
-      <div class="surface" style="padding: .8rem 1rem; margin:.5rem 0">
-        <div class="stack-1">
-          <a href="#services">Services</a>
-          <a href="#cases">Case Studies</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#about">About</a>
-          <a href="#resources">Resources</a>
-          <a href="#contact">Contact</a>
-          <div class="sep"></div>
-          <a class="btn btn-primary pill" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Book a Strategy Call</a>
-        </div>
-      </div>
-    </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Primary">
+      <a class="logo" href="#">Givana</a>
+      <button class="nav-toggle" aria-controls="menu" aria-expanded="false">
+        <span class="sr-only">Toggle menu</span>
+        ☰
+      </button>
+      <ul id="menu" class="menu">
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#personalized">Personalized</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a class="btn" href="#contact">Order</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- =================== Hero =================== -->
-  <main id="home" class="hero">
-    <div class="bgfx" aria-hidden="true"></div>
-    <div class="container surface" style="padding: clamp(22px, 3vw, 32px)">
-      <div class="wrap">
-        <section class="stack-2">
-          <div class="eyebrow"><span class="badge">Security-first</span><span class="badge">WCAG 2.2 AA</span><span class="badge">Enterprise Ready</span></div>
-          <header>
-            <h1>Deploy AI that ships <span class="accent">outcomes</span>—fast.</h1>
-            <p class="max-w-md">We design and engineer production-ready systems, apps, and automations that compound your team’s leverage.</p>
-          </header>
-          <div style="display:flex; gap:.6rem; flex-wrap:wrap">
-            <a class="btn btn-primary" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Book a Strategy Call</a>
-            <a class="btn btn-ghost" href="#cases">See Case Studies</a>
-            <span class="chip" aria-label="Contact email">hello@vectormind.ai</span>
-            <span class="chip" aria-label="Phone number">+1 (613) 555-0199</span>
+  <main id="main">
+    <section class="hero">
+      <div class="hero-inner container">
+        <div class="hero-copy">
+          <h1>100% Soy Wax Candles</h1>
+          <p class="lead">Scented · Luxury · Personalized gifts — hand-poured in Ottawa.</p>
+          <div class="cta">
+            <a class="btn primary" href="#collections">Shop Collections</a>
+            <a class="btn ghost" href="#personalized">Personalize a Candle</a>
           </div>
-          <div class="kpis" role="list" aria-label="Impact metrics">
-            <div class="kpi" role="listitem"><div class="v">-38%</div><div class="muted">Handle time</div></div>
-            <div class="kpi" role="listitem"><div class="v">+24%</div><div class="muted">Conversion rate</div></div>
-            <div class="kpi" role="listitem"><div class="v">+12</div><div class="muted">NPS uplift</div></div>
-          </div>
-        </section>
-        <aside>
-          <div class="card" style="padding:1rem">
-            <div class="stack-1">
-              <div class="eyebrow">Quick intro</div>
-              <div class="surface" style="padding:1rem">
-                <h3>Free 20-min Discovery</h3>
-                <p class="muted">Assess feasibility, timeline, and ROI for your use-case. No fluff.</p>
-                <a class="btn btn-primary" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Book Now</a>
-              </div>
-              <div class="sep"></div>
-              <div class="eyebrow">Tech stack</div>
-              <div class="marquee" aria-label="Stack marquee">
-                <span class="logo-chip">
-                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2L1 21h22z"/></svg> OpenAI
-                </span>
-                <span class="logo-chip">
-                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor"/></svg> Anthropic
-                </span>
-                <span class="logo-chip"><span class="kbd">LangChain</span></span>
-                <span class="logo-chip"><span class="kbd">Python</span></span>
-                <span class="logo-chip"><span class="kbd">Node</span></span>
-                <span class="logo-chip"><span class="kbd">React/Next</span></span>
-                <span class="logo-chip">Azure</span>
-                <span class="logo-chip">GCP</span>
-                <span class="logo-chip">AWS</span>
-              </div>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </div>
-
-    <div class="container mt-2">
-      <div class="surface" style="padding:1rem">
-        <div class="proof" aria-label="Proof bar">
-          <span class="chip">✅ SOC2-friendly</span>
-          <span class="chip">🔒 Security-first</span>
-          <span class="chip">♿ WCAG 2.2 AA</span>
-          <span class="chip">⚡ Lighthouse 95+</span>
-          <span class="chip">🧪 Evals & Observability</span>
-          <span class="chip">🧱 Guardrails & Handoff</span>
+          <ul class="usp" role="list">
+            <li>Clean burn</li>
+            <li>Thoughtful scents</li>
+            <li>Gift-ready packaging</li>
+          </ul>
         </div>
+        <figure class="hero-media">
+          <img src="https://images.unsplash.com/photo-1501466044931-62695aada8e9?q=80&w=1200&auto=format&fit=crop" alt="Elegant soy candles arranged on a tray" loading="eager" />
+        </figure>
       </div>
-    </div>
-  </main>
+    </section>
 
-  <!-- =================== Services Overview =================== -->
-  <section id="services" class="px-section">
-    <div class="container stack-2">
-      <header class="center max-w-lg">
-        <span class="eyebrow">What we do</span>
-        <h2>Full-stack AI, from discovery to deployment</h2>
-        <p>Outcome-focused services that move the needle.</p>
+    <section id="collections" class="container section">
+      <header class="section-head">
+        <h2>Collections</h2>
+        <p>Discover scented, soy, and luxury signature lines — crafted to elevate everyday moments.</p>
       </header>
 
-      <div class="grid grid-3">
-        <!-- 6 services -->
-        <article class="card feature">
-          <div class="icon" aria-hidden="true">🤖</div>
-          <h3>AI Systems</h3>
-          <p>Data pipelines, RAG, evals, observability.</p>
-          <ul class="muted">
-            <li>• Robust retrieval on private data</li>
-            <li>• Offline/PHI-aware redaction</li>
-            <li>• Continuous evals & drift alerts</li>
-          </ul>
-          <a class="btn btn-ghost" href="#svc-aisystems">Explore →</a>
-        </article>
-        <article class="card feature">
-          <div class="icon">📊</div>
-          <h3>Full-Stack Applications</h3>
-          <p>Dashboards, admin portals, APIs.</p>
-          <ul class="muted">
-            <li>• Role-based auth & audit</li>
-            <li>• Real-time collaboration</li>
-            <li>• API design & SDKs</li>
-          </ul>
-          <a class="btn btn-ghost" href="#svc-fullstack">Explore →</a>
-        </article>
-        <article class="card feature">
-          <div class="icon">💬</div>
-          <h3>AI Chatbots</h3>
-          <p>Support/sales, retrieval, guardrails, analytics.</p>
-          <ul class="muted">
-            <li>• Resolve 60–80% tickets automatically</li>
-            <li>• RAG on your docs</li>
-            <li>• Guardrails + human handoff</li>
-          </ul>
-          <a class="btn btn-ghost" href="#svc-chatbots">Explore →</a>
-        </article>
-        <article class="card feature">
-          <div class="icon">🎙️</div>
-          <h3>Voice Assistants</h3>
-          <p>Telephony, IVR, real-time, diarization.</p>
-          <ul class="muted">
-            <li>• Sub-300ms latency</li>
-            <li>• Call summaries & QA</li>
-            <li>• PCI-safe handling</li>
-          </ul>
-          <a class="btn btn-ghost" href="#svc-voice">Explore →</a>
-        </article>
-        <article class="card feature">
-          <div class="icon">⚙️</div>
-          <h3>Workflow Automations</h3>
-          <p>Zapier/Make/custom, HITL loops.</p>
-          <ul class="muted">
-            <li>• Human-in-the-loop review</li>
-            <li>• Error queues & retries</li>
-            <li>• Measurable time savings</li>
-          </ul>
-          <a class="btn btn-ghost" href="#svc-automation">Explore →</a>
-        </article>
-        <article class="card feature">
-          <div class="icon">🧭</div>
-          <h3>AI Consulting</h3>
-          <p>Roadmaps, audits, governance.</p>
-          <ul class="muted">
-            <li>• Data & risk discovery</li>
-            <li>• Architecture blueprints</li>
-            <li>• Training & enablement</li>
-          </ul>
-          <a class="btn btn-ghost" href="#svc-consulting">Explore →</a>
-        </article>
-      </div>
-
-      <!-- Comparison table -->
-      <div class="surface" style="padding:1rem">
-        <h3 class="mb-1">Which service is right for you?</h3>
-        <div class="table vis-ch" role="table" aria-label="Services comparison">
-          <div style="overflow:auto">
-            <table class="table" aria-describedby="svc-compare-desc">
-              <caption id="svc-compare-desc" class="sr-only">Compare outcomes, timeline, and starting price across services.</caption>
-              <thead>
-                <tr><th>Service</th><th>Primary Outcome</th><th>Typical Timeline</th><th>Starting at</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>AI Systems</td><td>Accurate retrieval & measurable quality</td><td>3–8 weeks</td><td>$25k</td></tr>
-                <tr><td>Full-Stack Apps</td><td>Admin dashboards & APIs in prod</td><td>4–10 weeks</td><td>$25k</td></tr>
-                <tr><td>AI Chatbots</td><td>Resolve 60–80% tickets</td><td>2–6 weeks</td><td>$15k</td></tr>
-                <tr><td>Voice Assistants</td><td>Automated calls & summaries</td><td>3–8 weeks</td><td>$20k</td></tr>
-                <tr><td>Automations</td><td>Reduce manual work by 30–60%</td><td>2–5 weeks</td><td>$10k</td></tr>
-                <tr><td>Consulting</td><td>Roadmap, governance & ROI</td><td>1–3 weeks</td><td>$7.5k</td></tr>
-              </tbody>
-            </table>
+      <div class="grid cards">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop" alt="Scented candle with soft floral notes" />
+          <div class="card-body">
+            <h3>Signature Scents</h3>
+            <p>From calming lavender to warm vanilla—balanced, room-filling aromas.</p>
+            <a href="#contact" class="text-link">Order this collection →</a>
           </div>
-        </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1519681393784-7b7b96f2f3ae?q=80&w=1200&auto=format&fit=crop" alt="Minimal luxury candle in matte vessel" />
+          <div class="card-body">
+            <h3>Luxury</h3>
+            <p>Refined vessels and layered notes—made to gift and to keep.</p>
+            <a href="#contact" class="text-link">Order this collection →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1501973801540-537f08ccae7b?q=80&w=1200&auto=format&fit=crop" alt="Personalized gift candle with custom label" />
+          <div class="card-body">
+            <h3>Personalized Gifts</h3>
+            <p>Custom labels, names & dates for weddings, birthdays, and milestones.</p>
+            <a href="#personalized" class="text-link">Personalize yours →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SHOP (pricing + quick-order) -->
+    <section id="shop" class="container section">
+      <header class="section-head">
+        <h2>Shop</h2>
+        <p>Transparent pricing. Hand-poured quality.</p>
+      </header>
+
+      <div class="grid cards shop-cards">
+        <article class="card product">
+          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop" alt="Signature scented candle" />
+          <div class="card-body">
+            <h3>Signature Scented</h3>
+            <p class="price">From CAD $24</p>
+            <ul class="bullets" role="list">
+              <li>8 oz · ~40+ hr burn</li>
+              <li>Clean, room-filling aroma</li>
+            </ul>
+            <button class="btn primary order-btn"
+              data-product="Signature Scented Candle"
+              data-price="24"
+              data-variant="8 oz"
+            >Order now</button>
+          </div>
+        </article>
+
+        <article class="card product">
+          <img src="https://images.unsplash.com/photo-1519681393784-7b7b96f2f3ae?q=80&w=1200&auto=format&fit=crop" alt="Luxury matte vessel candle" />
+          <div class="card-body">
+            <h3>Luxury</h3>
+            <p class="price">From CAD $36</p>
+            <ul class="bullets" role="list">
+              <li>Matte vessel · premium wax</li>
+              <li>Layered fragrance notes</li>
+            </ul>
+            <button class="btn primary order-btn"
+              data-product="Luxury Candle"
+              data-price="36"
+              data-variant="Standard"
+            >Order now</button>
+          </div>
+        </article>
+
+        <article class="card product">
+          <img src="https://images.unsplash.com/photo-1501973801540-537f08ccae7b?q=80&w=1200&auto=format&fit=crop" alt="Personalized gift candle" />
+          <div class="card-body">
+            <h3>Personalized Gift</h3>
+            <p class="price">From CAD $42</p>
+            <ul class="bullets" role="list">
+              <li>Custom label (names/dates)</li>
+              <li>Proof sent before pour</li>
+            </ul>
+            <button class="btn primary order-btn"
+              data-product="Personalized Candle"
+              data-price="42"
+              data-variant="Custom label"
+            >Personalize & order</button>
+          </div>
+        </article>
       </div>
 
-      <!-- How we work -->
-      <div class="surface" style="padding:1rem">
-        <header class="stack-1">
-          <span class="eyebrow">How we work</span>
-          <h3>Discover → Design → Deploy</h3>
+      <p class="micro-note">* Prices are sample and can be updated anytime.</p>
+    </section>
+
+    <section id="personalized" class="section alt">
+      <div class="container">
+        <header class="section-head">
+          <h2>Personalize Your Candle</h2>
+          <p>Make it truly yours in three simple steps.</p>
         </header>
-        <div class="timeline mt-1">
-          <div class="step">
-            <div class="bullet">1</div>
-            <div>
-              <h4>Discover</h4>
-              <p class="muted">Define success criteria, risks, and constraints. We baseline metrics and draft the architecture.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="bullet">2</div>
-            <div>
-              <h4>Design</h4>
-              <p class="muted">Prototyping with evals, guardrails, and observability. We choose stable components and model options.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="bullet">3</div>
-            <div>
-              <h4>Deploy</h4>
-              <p class="muted">Production hardening, CI/CD, monitoring, and handover. Your team owns the keys.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Featured Case -->
-      <div class="grid grid-2">
-        <article class="surface" style="padding:1rem" id="featured-case">
-          <header class="stack-1">
-            <span class="eyebrow">Featured case</span>
-            <h3>Support Chatbot reduces handle time by 38%</h3>
-          </header>
-          <p class="muted">For a SaaS platform (200k MAU), we built an RAG-powered assistant with guardrails and human handoff. Integrated with Zendesk & CRM.</p>
-          <ul class="grid grid-3">
-            <li class="kpi"><div class="v">-38%</div><div class="muted">Handle time</div></li>
-            <li class="kpi"><div class="v">+24%</div><div class="muted">Lead conversion</div></li>
-            <li class="kpi"><div class="v">NPS +12</div><div class="muted">Customer delight</div></li>
-          </ul>
-          <a class="btn btn-ghost mt-1" href="#cases">Read full case →</a>
-        </article>
-        <!-- Testimonial carousel -->
-        <aside class="surface" style="padding:1rem">
-          <header class="stack-1"><span class="eyebrow">What clients say</span><h3>Testimonials</h3></header>
-          <div class="carousel mt-1" aria-roledescription="carousel">
-            <div class="carousel-track" id="carouselTrack">
-              <figure class="card testimonial">
-                <blockquote>“VectorMind AI is the rare partner that speaks both architecture and outcomes. We shipped in weeks, not quarters.”</blockquote>
-                <figcaption class="muted">VP Product, Fintech</figcaption>
-              </figure>
-              <figure class="card testimonial">
-                <blockquote>“Their eval-first approach gave us confidence to roll out to 1,000+ agents with measurable quality.”</blockquote>
-                <figcaption class="muted">Director of CX, SaaS</figcaption>
-              </figure>
-              <figure class="card testimonial">
-                <blockquote>“Security and governance were not afterthoughts. They built it right.”</blockquote>
-                <figcaption class="muted">CTO, Healthcare</figcaption>
-              </figure>
-            </div>
-            <div class="dots" aria-label="Slide indicators">
-              <button class="dot" aria-label="Slide 1" data-slide="0"></button>
-              <button class="dot" aria-label="Slide 2" data-slide="1"></button>
-              <button class="dot" aria-label="Slide 3" data-slide="2"></button>
-            </div>
-          </div>
-        </aside>
-      </div>
-
-      <div class="cta-band mt-2">
-        <h3>Ready to turn your AI idea into shipped software?</h3>
-        <div style="display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap">
-          <a class="btn btn-primary" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Book a Strategy Call</a>
-          <a class="btn btn-ghost" href="#contact">Get a Proposal</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =================== Service Details (anchor sections) =================== -->
-  <section id="svc-aisystems" class="px-section">
-    <div class="container grid grid-2">
-      <article class="surface" style="padding:1rem">
-        <header class="stack-1"><span class="eyebrow">Service</span><h2>AI Systems</h2></header>
-        <p>We build reliable retrieval & reasoning on your private data with continuous evaluations and observability.</p>
-        <h3>Process timeline</h3>
-        <ol class="stack-1 muted">
-          <li>Week 1: Data audit, risks, baseline evals</li>
-          <li>Weeks 2–4: RAG pipeline, embeddings, indexing</li>
-          <li>Weeks 4–6: Guardrails, redaction, observability</li>
-          <li>Week 6+: Hardening, runbooks, handover</li>
+        <ol class="steps">
+          <li><strong>Choose</strong> a vessel & size</li>
+          <li><strong>Pick</strong> a scent profile</li>
+          <li><strong>Add</strong> names, dates, or a short message</li>
         </ol>
-        <div class="sep"></div>
-        <h3>Deliverables</h3>
-        <ul class="muted">
-          <li>Architecture & runbooks</li>
-          <li>RAG pipelines with evals</li>
-          <li>Dashboards & alerts</li>
-          <li>Security review pack</li>
-        </ul>
-        <div class="sep"></div>
-        <p><strong>Timeline:</strong> 3–8 weeks &nbsp; • &nbsp; <strong>Starting at:</strong> $25k</p>
-        <details class="faq mt-1">
-          <summary>How do you measure quality?</summary>
-          <p>We implement offline/online evals, hallucination checks, and human review loops. Dashboards track regressions.</p>
-        </details>
-        <a class="btn btn-primary mt-1" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Book a Strategy Call</a>
-      </article>
-      <aside class="card feature">
-        <div class="icon">🧪</div>
-        <h3>Stack</h3>
-        <ul class="muted">
-          <li>OpenAI / Anthropic / OSS</li>
-          <li>LangChain / LlamaIndex</li>
-          <li>Postgres / Redis / Vector DBs</li>
-          <li>Weaviate / Pinecone / pgvector</li>
-        </ul>
-      </aside>
-    </div>
-  </section>
-
-  <section id="svc-fullstack" class="px-section">
-    <div class="container grid grid-2">
-      <article class="surface" style="padding:1rem">
-        <header class="stack-1"><span class="eyebrow">Service</span><h2>Full-Stack Applications</h2></header>
-        <p>From secure admin portals to real-time dashboards, we deliver product-grade experiences with modern DX.</p>
-        <h3>Deliverables</h3>
-        <ul class="muted">
-          <li>Design system & UI kit</li>
-          <li>Role-based auth & audit logs</li>
-          <li>API (REST/GraphQL) + SDKs</li>
-          <li>Observability & SLOs</li>
-        </ul>
-        <p><strong>Timeline:</strong> 4–10 weeks • <strong>Starting at:</strong> $25k</p>
-        <details class="faq mt-1"><summary>Do you support on-prem?</summary><p>Yes. We can target your cloud or on-prem with containerized deployments and IaC.</p></details>
-        <a class="btn btn-primary mt-1" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Book a Strategy Call</a>
-      </article>
-      <aside class="card feature">
-        <div class="icon">🧩</div>
-        <h3>Stack</h3>
-        <ul class="muted">
-          <li>Next.js / React</li>
-          <li>Node / Python</li>
-          <li>Postgres / Prisma</li>
-          <li>tRPC / GraphQL</li>
-        </ul>
-      </aside>
-    </div>
-  </section>
-
-  <section id="svc-chatbots" class="px-section">
-    <div class="container grid grid-2">
-      <article class="surface" style="padding:1rem">
-        <header class="stack-1"><span class="eyebrow">Service</span><h2>AI Chatbots</h2></header>
-        <p>Resolve 60–80% of support tickets with retrieval-augmented assistants and safe handoffs.</p>
-        <h3>Deliverables</h3>
-        <ul class="muted">
-          <li>RAG & policy guardrails</li>
-          <li>Human handoff (Zendesk/Intercom)</li>
-          <li>Analytics & CSAT tracking</li>
-          <li>Admin tools & content ops</li>
-        </ul>
-        <p><strong>Timeline:</strong> 2–6 weeks • <strong>Starting at:</strong> $15k</p>
-        <details class="faq mt-1"><summary>How do you prevent hallucinations?</summary><p>Strict retrieval, confidence gating, content filters, and escalation rules.</p></details>
-        <a class="btn btn-primary mt-1" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Book a Strategy Call</a>
-      </article>
-      <aside class="card feature">
-        <div class="icon">📈</div>
-        <h3>KPIs</h3>
-        <ul class="muted">
-          <li>Automatic resolution rate</li>
-          <li>Time to first response</li>
-          <li>CSAT/NPS uplift</li>
-          <li>Deflection savings</li>
-        </ul>
-      </aside>
-    </div>
-  </section>
-
-  <section id="svc-voice" class="px-section">
-    <div class="container grid grid-2">
-      <article class="surface" style="padding:1rem">
-        <header class="stack-1"><span class="eyebrow">Service</span><h2>Voice Assistants</h2></header>
-        <p>Telephony, IVR, and real-time assistants with sub-300ms latency and compliance controls.</p>
-        <h3>Deliverables</h3>
-        <ul class="muted"><li>Realtime pipelines</li><li>Call summaries & QA</li><li>Diarization & redaction</li><li>PCI-safe flows</li></ul>
-        <p><strong>Timeline:</strong> 3–8 weeks • <strong>Starting at:</strong> $20k</p>
-        <a class="btn btn-primary mt-1" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Book a Strategy Call</a>
-      </article>
-      <aside class="card feature">
-        <div class="icon">☎️</div>
-        <h3>Integrations</h3>
-        <p class="muted">Twilio, PSTN, SIP, Teams/Zoom Phone.</p>
-      </aside>
-    </div>
-  </section>
-
-  <section id="svc-automation" class="px-section">
-    <div class="container grid grid-2">
-      <article class="surface" style="padding:1rem">
-        <header class="stack-1"><span class="eyebrow">Service</span><h2>Workflow Automations</h2></header>
-        <p>Automate repetitive work with robust error handling and human-in-the-loop checkpoints.</p>
-        <h3>Deliverables</h3>
-        <ul class="muted"><li>System maps</li><li>Queues & retries</li><li>Supervisor dashboards</li><li>Training & docs</li></ul>
-        <p><strong>Timeline:</strong> 2–5 weeks • <strong>Starting at:</strong> $10k</p>
-        <a class="btn btn-primary mt-1" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Book a Strategy Call</a>
-      </article>
-      <aside class="card feature">
-        <div class="icon">🔁</div>
-        <h3>Platforms</h3>
-        <p class="muted">Zapier, Make, Airflow, custom workers.</p>
-      </aside>
-    </div>
-  </section>
-
-  <section id="svc-consulting" class="px-section">
-    <div class="container grid grid-2">
-      <article class="surface" style="padding:1rem">
-        <header class="stack-1"><span class="eyebrow">Service</span><h2>AI Consulting</h2></header>
-        <p>Roadmaps, audits, and governance that align AI with your risk posture and ROI.</p>
-        <h3>Deliverables</h3>
-        <ul class="muted"><li>Use-case prioritization</li><li>Architecture blueprint</li><li>Risk & governance matrix</li><li>Training & enablement</li></ul>
-        <p><strong>Timeline:</strong> 1–3 weeks • <strong>Starting at:</strong> $7.5k</p>
-        <a class="btn btn-primary mt-1" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Book a Strategy Call</a>
-      </article>
-      <aside class="card feature">
-        <div class="icon">🛡️</div>
-        <h3>Governance</h3>
-        <p class="muted">Policies, model cards, data retention, DPIAs.</p>
-      </aside>
-    </div>
-  </section>
-
-  <!-- =================== Case Studies =================== -->
-  <section id="cases" class="px-section">
-    <div class="container stack-2">
-      <header class="center max-w-lg">
-        <span class="eyebrow">Proof of impact</span>
-        <h2>Case Studies</h2>
-        <p>Fictionalized but plausible engagements showing measurable lift.</p>
-      </header>
-      <div class="grid grid-3">
-        <article class="card" style="padding:1rem">
-          <h3>SaaS Support Assistant</h3>
-          <p class="muted">RAG + guardrails integrated with Zendesk. Analytics dashboard & evals.</p>
-          <ul class="proof"><li class="chip">-38% handle time</li><li class="chip">+12 NPS</li><li class="chip">60–80% auto-resolution</li></ul>
-          <div class="sep"></div>
-          <p class="muted"><strong>Stack:</strong> OpenAI, LangChain, pgvector, Next.js</p>
-          <a class="btn btn-ghost" href="#featured-case">Read more →</a>
-        </article>
-        <article class="card" style="padding:1rem">
-          <h3>Field Ops Voice Agent</h3>
-          <p class="muted">Realtime IVR for scheduling & status. Sub-300ms latency, PCI-safe flows.</p>
-          <ul class="proof"><li class="chip">-25% missed calls</li><li class="chip">+19% first-call resolution</li><li class="chip">QA automation</li></ul>
-          <div class="sep"></div>
-          <p class="muted"><strong>Stack:</strong> Realtime API, Twilio, Redis</p>
-          <a class="btn btn-ghost" href="#svc-voice">Read more →</a>
-        </article>
-        <article class="card" style="padding:1rem">
-          <h3>Finance KYC Automation</h3>
-          <p class="muted">Document parsing & risk flags with human review queues.</p>
-          <ul class="proof"><li class="chip">-62% manual effort</li><li class="chip">+28% throughput</li><li class="chip">Audit-ready</li></ul>
-          <div class="sep"></div>
-          <p class="muted"><strong>Stack:</strong> Python, OCR, Postgres, Next.js</p>
-          <a class="btn btn-ghost" href="#svc-automation">Read more →</a>
-        </article>
+        <a class="btn primary" href="#contact">Start a Personalized Order</a>
       </div>
-      <div class="cta-band">
-        <p class="muted">Want a case study in your domain?</p>
-        <a class="btn btn-primary" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Book a Strategy Call</a>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- =================== Pricing =================== -->
-  <section id="pricing" class="px-section">
-    <div class="container stack-2">
-      <header class="center max-w-lg">
-        <span class="eyebrow">Pricing</span>
-        <h2>Value-anchored plans</h2>
-        <p>Transparent, ROI-first. Start small; scale as outcomes prove out.</p>
-      </header>
-      <div class="grid grid-3">
-        <article class="surface" style="padding:1rem">
-          <h3>Discovery Sprint</h3>
-          <p class="muted">Feasibility, roadmap, prototype, and governance recommendations.</p>
-          <h1 class="accent">$7.5k</h1>
-          <ul class="muted">
-            <li>• Workshop & use-case scoring</li>
-            <li>• Architecture outline</li>
-            <li>• Risk & compliance review</li>
-            <li>• Prototype + next steps</li>
+    <section id="about" class="container section">
+      <div class="about">
+        <div class="about-copy">
+          <h2>About Givana</h2>
+          <p>We craft clean-burning, 100% soy candles designed to slow down time and spark joy. Whether you’re treating yourself or gifting someone special, every candle is poured with care.</p>
+          <ul class="highlights" role="list">
+            <li>100% soy wax</li>
+            <li>Curated scent library</li>
+            <li>Personalized labels available</li>
           </ul>
-          <a class="btn btn-primary" href="https://calendly.com/vectormind/intro" target="_blank">Start a Sprint</a>
-        </article>
-        <article class="surface" style="padding:1rem; outline: 2px solid rgba(90,124,255,.35);">
-          <h3>MVP Build</h3>
-          <p class="muted">Ship a production-ready vertical slice with evals & observability.</p>
-          <h1 class="accent">from $25k</h1>
-          <ul class="muted">
-            <li>• RAG/chatbot/automation MVP</li>
-            <li>• CI/CD + monitoring</li>
-            <li>• Runbooks & training</li>
-            <li>• Handover & support</li>
-          </ul>
-          <a class="btn btn-primary" href="https://calendly.com/vectormind/intro" target="_blank">Scope my MVP</a>
-        </article>
-        <article class="surface" style="padding:1rem">
-          <h3>Scale / Retainer</h3>
-          <p class="muted">Ongoing iteration, new features, and reliability upgrades.</p>
-          <h1 class="accent">$6k+/mo</h1>
-          <ul class="muted">
-            <li>• Backlog & roadmap</li>
-            <li>• Evals & regression guards</li>
-            <li>• Security patches</li>
-            <li>• On-call engineering</li>
-          </ul>
-          <a class="btn btn-primary" href="#contact">Get a Proposal</a>
-        </article>
+        </div>
+        <figure class="about-media">
+          <img src="https://images.unsplash.com/photo-1519681393784-7f3b70cacb06?q=80&w=1200&auto=format&fit=crop" alt="Close-up of a soy candle being poured" loading="lazy" />
+        </figure>
       </div>
+    </section>
 
-      <!-- Pricing FAQs -->
-      <div class="grid grid-2">
-        <div class="stack-1">
-          <h3>FAQs</h3>
-          <details class="faq"><summary>Can you work with our existing vendors?</summary><p>Yes—we often integrate with security, legal, and data teams plus external agencies.</p></details>
-          <details class="faq"><summary>How do you handle data privacy?</summary><p>Data stays in your cloud when possible; we minimize PII/PHI and apply redaction & retention policies.</p></details>
-          <details class="faq"><summary>What if we don’t have labeled data?</summary><p>We use targeted eval sets and human-in-the-loop review to bootstrap quality safely.</p></details>
-          <details class="faq"><summary>Do you offer fixed bids?</summary><p>Yes, for well-scoped sprints and MVPs. Retainers are flexible for evolving roadmaps.</p></details>
-          <details class="faq"><summary>What’s your typical lead time?</summary><p>We can usually start within 1–2 weeks after the sprint kickoff.</p></details>
-        </div>
-        <div class="stack-1">
-          <details class="faq"><summary>Which LLMs do you support?</summary><p>OpenAI, Anthropic, and vetted OSS models—selected per requirements, cost, and risk.</p></details>
-          <details class="faq"><summary>Can you deploy on-prem?</summary><p>Yes—containerized deployments and IaC for your environment.</p></details>
-          <details class="faq"><summary>How do you measure ROI?</summary><p>Joint KPI baselines, dashboards, and regular reviews. We ship improvements, not just features.</p></details>
-          <details class="faq"><summary>Do you provide training?</summary><p>Yes—enablement sessions and documentation included in all plans.</p></details>
-          <details class="faq"><summary>What about accessibility?</summary><p>WCAG 2.2 AA by default, including keyboard support and semantic HTML.</p></details>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =================== About =================== -->
-  <section id="about" class="px-section">
-    <div class="container grid grid-2">
-      <article class="surface" style="padding:1rem">
-        <header class="stack-1"><span class="eyebrow">About</span><h2>We’re engineers who ship outcomes</h2></header>
-        <p>VectorMind AI blends product thinking with solid engineering to deliver reliable AI in production.</p>
-        <ul class="proof">
-          <li class="chip">Mission-driven</li>
-          <li class="chip">Security-first</li>
-          <li class="chip">Design-led</li>
-        </ul>
-      </article>
-      <aside class="card" style="padding:1rem">
-        <h3>Leadership</h3>
-        <div class="stack-1">
-          <div class="surface" style="padding:.8rem">
-            <strong>Alex Rivera</strong> — Principal Architect
-            <p class="muted">LLM systems, retrieval, governance</p>
-            <div class="proof"><span class="badge">OpenAI</span><span class="badge">Azure</span><span class="badge">Postgres</span></div>
-          </div>
-          <div class="surface" style="padding:.8rem">
-            <strong>Maya Chen</strong> — Head of Product
-            <p class="muted">User research, accessibility, DX</p>
-            <div class="proof"><span class="badge">Next.js</span><span class="badge">WCAG</span><span class="badge">Figma</span></div>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <!-- =================== Resources / Blog =================== -->
-  <section id="resources" class="px-section">
-    <div class="container stack-2">
-      <header class="center max-w-lg">
-        <span class="eyebrow">Resources</span>
-        <h2>Guides & architecture notes</h2>
-        <p>Short, practical reads for teams shipping AI.</p>
+    <section id="faq" class="container section">
+      <header class="section-head">
+        <h2>FAQs</h2>
       </header>
-      <div class="grid grid-2">
-        <article class="card" style="padding:1rem">
-          <h3>Guardrails that actually work</h3>
-          <p class="muted">A pragmatic approach to policy, content filtering, and escalation.</p>
-          <a class="btn btn-ghost" href="#resources">Read →</a>
-        </article>
-        <article class="card" style="padding:1rem">
-          <h3>Operationalizing evals</h3>
-          <p class="muted">From ad-hoc checks to continuous evaluation pipelines.</p>
-          <a class="btn btn-ghost" href="#resources">Read →</a>
-        </article>
-      </div>
-    </div>
-  </section>
+      <details>
+        <summary>What makes your candles different?</summary>
+        <div class="details-body">
+          <p>Our candles are made from 100% soy wax with carefully balanced fragrance loads for a clean, even burn and beautiful scent throw.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Do you offer custom labels for gifts or events?</summary>
+        <div class="details-body">
+          <p>Yes—share names, dates, or a short message. We’ll send a proof before production.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Where are you located?</summary>
+        <div class="details-body">
+          <p>Ottawa, Canada. We accept local orders and ship within Canada.</p>
+        </div>
+      </details>
+    </section>
 
-  <!-- =================== Contact =================== -->
-  <section id="contact" class="px-section">
-    <div class="container grid grid-2">
-      <form class="surface" style="padding:1rem" id="contactForm" novalidate>
-        <header class="stack-1"><span class="eyebrow">Contact</span><h2>Tell us about your project</h2></header>
-        <div class="row">
+    <section id="contact" class="section alt">
+      <div class="container contact">
+        <header class="section-head">
+          <h2>Contact & Orders</h2>
+          <p>Ready to order? Email us with your candle choice and any personalization details.</p>
+        </header>
+
+        <div class="contact-grid">
           <div>
+            <h3>Contact</h3>
+            <p><strong>Punam Kulla</strong><br/>
+            <a href="mailto:kullapunam101@gmail.com">kullapunam101@gmail.com</a><br/>
+            Ottawa, Canada</p>
+            <p class="socials">
+              <a href="https://instagram.com/REPLACE_WITH_YOUR_HANDLE" aria-label="Instagram - Givana &amp; Co" target="_blank" rel="noopener">Instagram</a>
+              <a href="https://facebook.com/REPLACE_WITH_YOUR_PAGE" aria-label="Facebook - Givana &amp; Co" target="_blank" rel="noopener">Facebook</a>
+            </p>
+          </div>
+
+          <form class="contact-form" onsubmit="return handleSubmit(event)">
             <label for="name">Name</label>
             <input id="name" name="name" placeholder="Your name" required />
-          </div>
-          <div>
-            <label for="email">Work email</label>
-            <input id="email" name="email" type="email" placeholder="you@company.com" required inputmode="email" />
-          </div>
-        </div>
-        <div class="row">
-          <div>
-            <label for="company">Company</label>
-            <input id="company" name="company" placeholder="Company Inc." />
-          </div>
-          <div>
-            <label for="budget">Budget range</label>
-            <select id="budget" name="budget">
-              <option value="">Select</option>
-              <option>$7.5k – $15k</option>
-              <option>$15k – $40k</option>
-              <option>$40k – $100k</option>
-              <option>$100k+</option>
-            </select>
-          </div>
-        </div>
-        <div>
-          <label for="usecase">Use-case</label>
-          <textarea id="usecase" name="usecase" rows="4" placeholder="What problem are we solving? Success looks like…"></textarea>
-        </div>
-        <!-- Honeypot -->
-        <input type="checkbox" id="hp" name="hp" class="sr-only" tabindex="-1" autocomplete="off" />
-        <p class="help">Prefer to book directly? <a href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Calendly link</a>.</p>
-        <div style="display:flex; gap:.6rem; align-items:center">
-          <button class="btn btn-primary" type="submit">Get a Proposal</button>
-          <span id="formStatus" class="note" role="status" aria-live="polite"></span>
-        </div>
-      </form>
-
-      <aside class="surface" style="padding:1rem">
-        <h3>Book a Strategy Call</h3>
-        <p class="muted">Fastest path to clarity. 20 minutes to align on scope, risks, and ROI.</p>
-        <a class="btn btn-primary" href="https://calendly.com/vectormind/intro" target="_blank" rel="noopener">Open Calendly</a>
-        <div class="sep"></div>
-        <p class="muted"><strong>Location:</strong> Ottawa, Canada</p>
-        <p class="muted"><strong>Email:</strong> hello@vectormind.ai</p>
-        <p class="muted"><strong>Phone:</strong> +1 (613) 555-0199</p>
-        <div class="sep"></div>
-        <h4>Security & Compliance</h4>
-        <ul class="muted">
-          <li>Principle of least privilege</li>
-          <li>Data minimization; retention controls</li>
-          <li>Accessible by design (WCAG 2.2 AA)</li>
-        </ul>
-      </aside>
-    </div>
-  </section>
-
-  <!-- =================== Legal =================== -->
-  <section id="legal" class="px-section">
-    <div class="container grid grid-2">
-      <article class="surface" style="padding:1rem">
-        <h3>Privacy</h3>
-        <p class="muted">We collect minimal analytics. Submitted forms are used to respond to your inquiry. We do not sell personal data.</p>
-      </article>
-      <article class="surface" style="padding:1rem">
-        <h3>Terms</h3>
-        <p class="muted">All content © VectorMind AI. Engagements are governed by a mutual MSA and SOW.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- =================== Footer =================== -->
-  <footer>
-    <div class="container">
-      <div class="grid grid-3">
-        <div>
-          <div class="brand"><span class="logo">V</span><h4>VectorMind <span class="accent">AI</span></h4></div>
-          <p class="muted">Enterprise AI, engineered for outcomes.</p>
-        </div>
-        <div>
-          <h4>Navigate</h4>
-          <ul class="stack-1">
-            <li><a href="#services">Services</a></li>
-            <li><a href="#cases">Case Studies</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#resources">Resources</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Contact</h4>
-          <p class="muted">hello@vectormind.ai<br/>+1 (613) 555-0199<br/>Ottawa, Canada</p>
-          <div class="proof"><span class="badge">Sitemap</span><span class="badge">Robots</span></div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell us about your order or personalization"></textarea>
+            <button type="submit" class="btn primary">Send Email</button>
+            <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+          </form>
         </div>
       </div>
-      <p class="muted" style="margin-top:1rem">© <span id="year"></span> VectorMind AI. All rights reserved.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>© 2025 Givana. All rights reserved.</small>
+      <a href="#top" class="text-link">Back to top ↑</a>
     </div>
   </footer>
 
-  <!-- =================== JSON-LD schema.org =================== -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"VectorMind AI",
-    "url":"https://vectormind.ai",
-    "logo":"https://vectormind.ai/logo.png",
-    "address":{"@type":"PostalAddress","addressLocality":"Ottawa","addressCountry":"CA"},
-    "contactPoint":[{"@type":"ContactPoint","email":"hello@vectormind.ai","telephone":"+1-613-555-0199","contactType":"sales"}],
-    "sameAs":[]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"ItemList",
-    "itemListElement":[
-      {"@type":"Service","name":"AI Systems","serviceType":"AI Systems","provider":{"@type":"Organization","name":"VectorMind AI"}},
-      {"@type":"Service","name":"Full-Stack Applications","serviceType":"Full-Stack Applications","provider":{"@type":"Organization","name":"VectorMind AI"}},
-      {"@type":"Service","name":"AI Chatbots","serviceType":"AI Chatbots","provider":{"@type":"Organization","name":"VectorMind AI"}},
-      {"@type":"Service","name":"Voice Assistants","serviceType":"Voice Assistants","provider":{"@type":"Organization","name":"VectorMind AI"}},
-      {"@type":"Service","name":"Workflow Automations","serviceType":"Workflow Automations","provider":{"@type":"Organization","name":"VectorMind AI"}},
-      {"@type":"Service","name":"AI Consulting","serviceType":"AI Consulting","provider":{"@type":"Organization","name":"VectorMind AI"}}
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Can you work with our existing vendors?","acceptedAnswer":{"@type":"Answer","text":"Yes—we often integrate with security, legal, and data teams plus external agencies."}},
-      {"@type":"Question","name":"How do you handle data privacy?","acceptedAnswer":{"@type":"Answer","text":"Data stays in your cloud when possible; we minimize PII/PHI and apply redaction & retention policies."}},
-      {"@type":"Question","name":"What if we don’t have labeled data?","acceptedAnswer":{"@type":"Answer","text":"We use targeted eval sets and human-in-the-loop review to bootstrap quality safely."}},
-      {"@type":"Question","name":"Do you offer fixed bids?","acceptedAnswer":{"@type":"Answer","text":"Yes, for well-scoped sprints and MVPs. Retainers are flexible for evolving roadmaps."}},
-      {"@type":"Question","name":"What’s your typical lead time?","acceptedAnswer":{"@type":"Answer","text":"We can usually start within 1–2 weeks after the sprint kickoff."}},
-      {"@type":"Question","name":"Which LLMs do you support?","acceptedAnswer":{"@type":"Answer","text":"OpenAI, Anthropic, and vetted OSS models—selected per requirements, cost, and risk."}},
-      {"@type":"Question","name":"Can you deploy on-prem?","acceptedAnswer":{"@type":"Answer","text":"Yes—containerized deployments and IaC for your environment."}},
-      {"@type":"Question","name":"How do you measure ROI?","acceptedAnswer":{"@type":"Answer","text":"Joint KPI baselines, dashboards, and regular reviews."}},
-      {"@type":"Question","name":"Do you provide training?","acceptedAnswer":{"@type":"Answer","text":"Yes—enablement sessions and documentation included in all plans."}},
-      {"@type":"Question","name":"What about accessibility?","acceptedAnswer":{"@type":"Answer","text":"WCAG 2.2 AA by default, including keyboard support and semantic HTML."}}
-    ]
-  }
-  </script>
-
-  <!-- =================== Minimal JS =================== -->
-  <script>
-    // Accessibility-friendly smooth scroll
-    (function(){
-      function smoothScroll(e){
-        const a = e.target.closest('a[href^="#"]');
-        if(!a) return;
-        const id = a.getAttribute('href').slice(1);
-        if(!id) return;
-        const el = document.getElementById(id);
-        if(el){
-          e.preventDefault();
-          el.scrollIntoView({behavior:'smooth', block:'start'});
-          // Set focus for keyboard users
-          setTimeout(()=>{ el.setAttribute('tabindex','-1'); el.focus({preventScroll:true}); }, 400);
-        }
-      }
-      document.addEventListener('click', smoothScroll, false);
-    })();
-
-    // Mobile drawer
-    (function(){
-      const btn = document.getElementById('menuBtn');
-      const drawer = document.getElementById('drawer');
-      if(!btn || !drawer) return;
-      btn.addEventListener('click', ()=>{
-        const open = drawer.style.display !== 'none' && drawer.style.display !== '';
-        drawer.style.display = open ? 'none':'block';
-        btn.setAttribute('aria-expanded', String(!open));
-      });
-    })();
-
-    // Carousel (testimonials)
-    (function(){
-      const track = document.getElementById('carouselTrack');
-      const dots = Array.from(document.querySelectorAll('.dot'));
-      let index = 0;
-      function go(i){
-        index = (i + dots.length) % dots.length;
-        const offset = index * (track.children[0].getBoundingClientRect().width + 16); // card width + gap
-        track.style.transform = `translateX(-${offset}px)`;
-        dots.forEach((d,j)=>d.classList.toggle('active', j===index));
-      }
-      dots.forEach(d=>d.addEventListener('click', ()=>go(Number(d.dataset.slide))));
-      go(0);
-      let timer = setInterval(()=>go(index+1), 5200);
-      track.addEventListener('pointerdown', ()=>{ clearInterval(timer); });
-    })();
-
-    // Consent banner + GA4 stub
-    (function(){
-      const key = 'vm-consent';
-      const el = document.getElementById('consent');
-      const accepted = localStorage.getItem(key);
-      if(!accepted){ el.style.display = 'block'; }
-      const accept = document.getElementById('consent-accept');
-      const decline = document.getElementById('consent-decline');
-      accept?.addEventListener('click', ()=>{ localStorage.setItem(key,'yes'); el.style.display='none'; enableAnalytics(); });
-      decline?.addEventListener('click', ()=>{ localStorage.setItem(key,'no'); el.style.display='none'; });
-      if(accepted === 'yes'){ enableAnalytics(); }
-
-      function enableAnalytics(){
-        // GA4 minimal loader (replace G-XXXXXXX)
-        const id = 'G-XXXXXXX';
-        if(!id || id.includes('X')) return; // skip if not configured
-        window.dataLayer = window.dataLayer || [];
-        window.gtag = function(){ dataLayer.push(arguments); };
-        gtag('js', new Date()); gtag('config', id);
-        const s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
-        document.head.appendChild(s);
-      }
-    })();
-
-    // Contact form: basic validation, honeypot, local "rate-limit"
-    (function(){
-      const form = document.getElementById('contactForm');
-      if(!form) return;
-      const status = document.getElementById('formStatus');
-      form.addEventListener('submit', async (e)=>{
-        e.preventDefault();
-        if(document.getElementById('hp').checked){ status.textContent = 'Spam detected.'; return; }
-        const last = Number(localStorage.getItem('vm-last-submit')||0);
-        if(Date.now() - last < 60_000){ status.textContent = 'Please wait a minute before submitting again.'; return; }
-        const data = Object.fromEntries(new FormData(form).entries());
-        if(!data.name || !data.email){ status.textContent = 'Please fill required fields.'; return; }
-        status.textContent = 'Sending…';
-        // Stub: replace with server action / API endpoint
-        await new Promise(r=>setTimeout(r, 800));
-        localStorage.setItem('vm-last-submit', String(Date.now()));
-        status.textContent = 'Thanks! We’ll reach out within 1 business day.';
-        form.reset();
-      });
-    })();
-
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-
-  <!-- =================== Deployment Notes ===================
-    • Deploy to Vercel. Add sitemap.xml & robots.txt at project root.
-    • Set security headers at the edge (example):
-        Content-Security-Policy: script-src 'self' https://www.googletagmanager.com; object-src 'none'; base-uri 'self';
-        Referrer-Policy: strict-origin-when-cross-origin
-        X-Content-Type-Options: nosniff
-        Permissions-Policy: camera=(), microphone=()
-    • Replace GA4 ID above to enable analytics after consent.
-    • Swap SVG/PNG placeholders for your brand assets.
-  ============================================================ -->
+  <script src="script.js"></script>
 </body>
 </html>
-```
